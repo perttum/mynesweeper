@@ -3,6 +3,7 @@ import Tile from '../Tile/Tile';
 import './Board.css';
 
 const board = (props) => {
+    console.log('board props: ', props);
     
     if(props.board !== null){
 
@@ -13,13 +14,14 @@ const board = (props) => {
 
         return(
             <div className="board" style={size}>
-                {props.board.map((row, x) => {
-                    return row.map((col, y) => {
-                        //console.log('row: ', rowI + " " + colI);
-                       // console.log('tileObj: ', props.board[x][y]);
-                        
-                        const tileName = `${props.board[x][y].id[0]}${props.board[x][y].id[1]}`;
-                        return <Tile key={tileName} val={tileName} obj={props.board[x][y]}/>
+                {props.board.map((col, y) => {
+                    return col.map((row, x) => {                        
+                        const tileName = `${x}${y}`;
+                        return <Tile 
+                                    key={tileName} 
+                                    obj={props.board[x][y]} 
+                                    onClick={props.onClickTile}
+                                />
                     })
                 })}    
             </div>
