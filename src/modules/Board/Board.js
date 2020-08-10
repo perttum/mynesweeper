@@ -14,8 +14,8 @@ const board = (props) => {
 
         return(
             <div className="board" style={size}>
-                {props.board.map((col, y) => {
-                    return col.map((row, x) => {                        
+                {props.board.map((col, x) => {
+                    return col.map((row, y) => {                        
                         const tileName = `${x}${y}`;
                         return <Tile 
                                     key={tileName} 

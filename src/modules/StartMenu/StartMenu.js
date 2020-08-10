@@ -1,6 +1,7 @@
 import React from 'react';
-import Button from '../Button/Button';
+import Button from '../General/Button/Button';
 import './StartMenu.css';
+import InputNumber from '../General/Inputs/InputNumber';
 
 const startMenu = (props) => {
     return(
@@ -10,16 +11,16 @@ const startMenu = (props) => {
                 <Button label={"easy"} onClick={props.onClick}/>
                 <Button label={"medium"} />
                 <Button label={"hard"} />
-                <Button label={"custom"} />
+                
             </div>
 
             <div>
+            <h4>Custom game</h4>
                 <form>
-                    <h4>Custom game</h4>
-                    <label>board width</label>
-                    <input type="number"/>
-                    <label>board height</label>
-                    <input type="number"/>
+                    <InputNumber label="X:" onChange={props.onChange} name="x"/>
+                    <InputNumber label="Y:" onChange={props.onChange} name="y"/>
+                    <InputNumber label="Mines:" onChange={props.onChange} name="mines"/>
+                    <Button label="start" onClick={props.onClickCustomGame}/>
                 </form>
             </div>
 

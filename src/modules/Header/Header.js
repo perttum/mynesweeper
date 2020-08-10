@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.css';
+import '../../index.css';
 
 const header = () => {
     return(
-        <div className="header">
-            <h1>SX Minesweeper</h1>
-        </div>
+        <header>
+            <h1>sweeper-78</h1>
+        </header>
     )
 }
 
