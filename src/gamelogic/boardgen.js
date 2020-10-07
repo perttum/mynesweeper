@@ -1,8 +1,8 @@
-const createBoard = (boardWidth, boardHeight, mineAmount) => {
+const createBoard = (boardSize, mineAmount) => {
     const newBoard = [];
-    for (let x = 0; x < boardWidth; x++)  {
+    for (let x = 0; x < boardSize; x++)  {
       newBoard.push([]);
-      for (let y = 0; y < boardHeight; y++) {
+      for (let y = 0; y < boardSize; y++) {
         
         const newTile = {
           open: false, // 0 = open, 1 = hidden
@@ -15,7 +15,7 @@ const createBoard = (boardWidth, boardHeight, mineAmount) => {
       }
     }
     
-    let boardTmp = createMines(newBoard, mineAmount, boardWidth, boardHeight);
+    let boardTmp = createMines(newBoard, mineAmount, boardSize);
     //console.log('bTmp ', boardTmp);
     
     //boardTmp = createMineCounts(boardTmp[0], boardTmp[1], boardWidth, boardHeight);
@@ -24,7 +24,7 @@ const createBoard = (boardWidth, boardHeight, mineAmount) => {
     return boardTmp;
   }
 
-  const createMines = (board, mineAmount, boardWidth, boardHeight) => {
+  const createMines = (board, mineAmount, boardSize) => {
     
     let createdMines = 0;
 
@@ -32,8 +32,8 @@ const createBoard = (boardWidth, boardHeight, mineAmount) => {
     let mineLocations = [];
 
     while(createdMines < mineAmount){
-      let randomX = Math.floor(Math.random() * boardWidth);
-      let randomY = Math.floor(Math.random() * boardHeight);
+      let randomX = Math.floor(Math.random() * boardSize);
+      let randomY = Math.floor(Math.random() * boardSize);
       let randomLocation = {
         x: randomX,
         y: randomY
@@ -60,11 +60,11 @@ const createBoard = (boardWidth, boardHeight, mineAmount) => {
       }      
     }
     
-    board = createMineCounts(board, mineLocations, boardWidth, boardHeight);
+    board = createMineCounts(board, mineLocations, boardSize);
     return board;  
   }
 
-  const createMineCounts = (board, mineLocations, boardWidth, boardHeight) => {
+  const createMineCounts = (board, mineLocations, boardSize) => {
     //console.log(board);
     
     mineLocations.forEach(location => {
@@ -81,8 +81,8 @@ const createBoard = (boardWidth, boardHeight, mineAmount) => {
             //console.log(`trying location... x:${xLoc} y:${yLoc}`);
 
             // Check if this location is on the board
-            if(xLoc >= 0 && xLoc < boardWidth){
-              if(yLoc >= 0 && yLoc < boardHeight){
+            if(xLoc >= 0 && xLoc < boardSize){
+              if(yLoc >= 0 && yLoc < boardSize){
 
                               
                 if(!board[xLoc][yLoc].mine){

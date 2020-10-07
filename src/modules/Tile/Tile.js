@@ -34,7 +34,7 @@ const Tile = (props) => {
        
     if(obj.open){
         style = {
-            backgroundColor: "white",
+            backgroundColor: "#f5f5f5",
             borderTop: "1px dotted lightGray",
             borderLeft: "1px dotted lightGray",
             borderRight: "none",

@@ -1,20 +1,19 @@
 import React from 'react';
 import Button from '../General/Button/Button';
 import './StartMenu.css';
-import InputNumber from '../General/Inputs/InputNumber';
 
 const startMenu = (props) => {
     return(
         <div>
             <h2>Start menu</h2>
             <div>
-                <Button label={"easy"} onClick={props.onClick}/>
-                <Button label={"medium"} />
-                <Button label={"hard"} />
-                
+                <Button label={`easy - Xmines`} onClick={props.setDifficulty} name="easy"/>
+                <Button label={"medium"}  onClick={props.setDifficulty} name="medium"/>
+                <Button label={"hard"}  onClick={props.setDifficulty} name="hard"/>
+                <Button label={"Start game"} onClick={props.startGame} name="start-game"/>
             </div>
 
-            <div>
+            {/* <div>
             <h4>Custom game</h4>
                 <form>
                     <InputNumber label="X:" onChange={props.onChange} name="x"/>
@@ -22,7 +21,7 @@ const startMenu = (props) => {
                     <InputNumber label="Mines:" onChange={props.onChange} name="mines"/>
                     <Button label="start" onClick={props.onClickCustomGame}/>
                 </form>
-            </div>
+            </div> */}
 
         </div>
     )

@@ -1,5 +1,9 @@
 .board{
     background-color: lightgrey;
+    border-left: 2px dotted lightGray;
+    border-bottom: 2px dotted lightGray;
+        
+    
     /* border: 2px solid burlywood; */
     
       

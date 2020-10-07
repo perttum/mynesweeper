@@ -7,31 +7,87 @@ import Header from './modules/Header/Header';
 
 function App() {
 
-  
-  const [boardWidth, setBoardWidth] = useState(3);
-  const [boardHeight, setBoardHeight] = useState(8);
+  const [boardSize, setBoardSize] = useState(2);
+  const [difficulty, setDifficulty] = useState('easy');
   const [board, setBoard] = useState(null);
-  const [mines, setMines] = useState(null);
-  const [mineAmount, setMineAmount] = useState(3);
-  const [tileSize, setTileSize] = useState(50);
+  //const [mines, setMines] = useState(null);
+  const [mineAmount, setMineAmount] = useState(1);
+  const tileSize = 40;
 
   // game state can be: 'menu' , 'game' or 'gameOver'
   const [gameState, setGameState] = useState('menu');
 
   // custom game form
-  const [xSize, setXSize] = useState(4);
-  const [ySize, setYSize] = useState(4);
-  const [customMineAmount, setCustomMineAmount] = useState(2);
+  // const [xSize, setXSize] = useState(4);
+  // const [ySize, setYSize] = useState(4);
+  // const [customMineAmount, setCustomMineAmount] = useState(2);
 
   // HANDLERS
 
-  const handleNewGameButton = () => {
-    startGame(boardWidth, boardHeight, mineAmount);
-    // const newBoard = boardGen.createBoard(boardWidth, boardHeight, mineAmount);
+  
+
+  const startGame = () => {
     
-    // setBoard(newBoard);
-    // setGameState('game');
+    // switch(difficulty){
+    //   case 'easy':
+    //       setMineAmount(1);
+    //       setBoardSize(2);
+    //     break;
+      
+    //   case 'medium':
+    //     setMineAmount(15);
+    //     setBoardSize(16);
+    //     break;
+
+    //   case 'hard':
+    //     setMineAmount(25);
+    //     setBoardSize(24);
+    //     break;
+
+    //     default: break;
+    // }
+
+    
+
+
+    const newBoard = boardGen.createBoard(boardSize, mineAmount);
+    setBoard(newBoard);
+    setGameState('game');
+
   }
+
+  const handleStartGame = (event) => {
+
+    // console.log(`e: ${event.target.name}`);
+    // setDifficulty(event.target.name);
+    
+    startGame();
+  }
+
+  const handleDifficultySelectButton = (event) => {
+    switch(event.target.name){
+      case 'easy':
+          setDifficulty('easy');
+          setMineAmount(15);
+          setBoardSize(8);
+        break;
+      
+      case 'medium':
+        setDifficulty('medium');
+        setMineAmount(40);
+        setBoardSize(15);
+        break;
+
+      case 'hard':
+        setDifficulty('hard');
+        setMineAmount(60);
+        setBoardSize(18);
+        break;
+
+        default: break;
+    }
+  }
+
 
   const handleTileClick = (event) => {
     
@@ -49,39 +105,8 @@ function App() {
     } 
   }
 
-  const handleCustomGameInputChange = (event) => {
-    console.log(`size changed: ${event.target.value} in name ${event.target.name}`);
-    switch(event.target.name){
-      case 'x':
-        setXSize(Number(event.target.value));
-        break;
 
-      case 'y':
-        setYSize(Number(event.target.value));
-        break;
 
-      case 'mines':
-        setCustomMineAmount(Number(event.target.value));
-        break;
-
-      default: break;
-    }
-  }
-
-  const handleSendCustomGameForm = (event) => {
-
-    setBoardWidth(xSize);
-    setBoardHeight(ySize);
-    setMineAmount(customMineAmount);  
-    startGame();
-    
-  }
-
-  const startGame = () => {
-    const newBoard = boardGen.createBoard(boardWidth, boardHeight, mineAmount);
-    setBoard(newBoard);
-    setGameState('game');
-  }
 
   const openTile = (locX, locY) =>{
     const newBoard = [...board];
@@ -100,8 +125,8 @@ function App() {
           let xLoc = locX + x;
           let yLoc = locY + y;
 
-          if(xLoc >= 0 && xLoc < boardWidth){
-            if(yLoc >= 0 && yLoc < boardHeight){
+          if(xLoc >= 0 && xLoc < boardSize){
+            if(yLoc >= 0 && yLoc < boardSize){
                             
               if(!board[xLoc][yLoc].open){
                 //console.log(`add mine count to x:${xLoc}/y:${yLoc} from y:${location.x}/y:${location.y}`);
@@ -133,6 +158,8 @@ function App() {
     setBoard(newBoard);
   }
 
+  
+
   switch(gameState){
     case 'menu':
       return(
@@ -142,31 +169,35 @@ function App() {
           <div className="container">
             
             <StartMenu 
-              onClick={handleNewGameButton} 
-              onClickCustomGame={handleSendCustomGameForm}
-              onChange={handleCustomGameInputChange}
+             // onClick={handleNewGameButton}
+              boardSize={boardSize}
+              mineAmount={mineAmount}
+              startGame={handleStartGame}
+              setDifficulty={handleDifficultySelectButton}
+              //onClickCustomGame={handleSendCustomGameForm}
+              //onChange={handleCustomGameInputChange}
             />
 
           </div>  
         </div>
         
       )
-      break;
     case 'game':
       return (
 
         <div>
-          <Header />
-          <div className="container">  
+         
+          
             <Board 
               board={board !== null ? board : null} 
-              boardSize={tileSize * boardWidth}
+              boardSize={tileSize * boardSize}
               onClickTile={handleTileClick}
             />
-          </div>
+          
         </div>
       )
-      break;
+
+      default: break;
   }
 }
 

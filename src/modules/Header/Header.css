@@ -1,4 +1,6 @@
 header{
     width: 100%;
-    padding-left: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
