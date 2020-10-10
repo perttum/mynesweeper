@@ -1,9 +1,7 @@
 import React from 'react'
-import Tile from '../Tile/Tile'
-import './Board.css'
+import Tile from './Tile/Tile'
 
-const board = (props) => {
-
+const Board = (props) => {
   if(props.board !== null){
     const size = {
       width: props.boardSize,
@@ -33,4 +31,4 @@ const board = (props) => {
   }
 }
 
-export default board
+export default Board

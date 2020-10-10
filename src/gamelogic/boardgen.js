@@ -55,9 +55,7 @@ const createMineCounts = (board, mineLocations, boardSize) => {
   mineLocations.forEach(location => {
     for (let x = -1; x <= 1; x++) {
       for (let y = -1; y <= 1; y++) {
-        if(x === 0 && y === 0){
-          //console.log(`zero loc X:${x} Y:${y}`)
-        } else{
+        if(!(x === 0 && y === 0)){
           let xLoc = location.x +x
           let yLoc = location.y +y
           //console.log(`trying location... x:${xLoc} y:${yLoc}`)
@@ -65,6 +63,7 @@ const createMineCounts = (board, mineLocations, boardSize) => {
           // Check if this location is on the board
           if(xLoc >= 0 && xLoc < boardSize){
             if(yLoc >= 0 && yLoc < boardSize){
+              // If there is not already a mine in this location
               if(!board[xLoc][yLoc].mine){
                 //console.log(`add mine count to x:${xLoc}/y:${yLoc} from y:${location.x}/y:${location.y}`)
                 board[xLoc][yLoc].neighborMines += 1
