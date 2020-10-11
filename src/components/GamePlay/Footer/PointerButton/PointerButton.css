@@ -1,0 +1,20 @@
+.pointer-button{
+  width: 32px;
+  height: 32px;
+  background-color: yellow;
+  box-sizing: border-box;
+  border: 2px solid black;
+  margin-right: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pointer-button:hover{
+  cursor: pointer;
+  background-color: tomato;
+}
+
+.pointer-button span{
+  pointer-events: none;
+}

@@ -10,7 +10,8 @@ const createBoard = (boardSize, mineAmount) => {
         locationX: x, // tile X Location on board
         locationY: y, // same for Y
         mine: false, // is this a mine?
-        neighborMines: 0 // value to show in open tile (if the tile has mines on neighbour tiles)
+        neighborMines: 0, // value to show in open tile (if the tile has mines on neighbour tiles)
+        mark: 'none'
       }
       newBoard[x][y] = newTile
     }

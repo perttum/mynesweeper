@@ -18,15 +18,23 @@ const Tile = (props) => {
   }
 
   const tileId = `${obj.locationX},${obj.locationY}`
-  let label
+  let label = ''
   if(obj.open){
     label = obj.mine ? 'M' : obj.neighborMines > 0 ? obj.neighborMines : ''
   } else{
-    label = ''
+    switch(obj.mark){
+    case 'flag':
+      label = 'F'
+      break
+    case 'questionmark':
+      label = '?'
+      break
+    default: break
+    }
   }
 
   return(
-    <button className="tile" style={style} onClick={props.onClick} value={tileId}>
+    <button className="tile" style={style} onClick={props.onClick} value={tileId} disabled={obj.open ? 'true' : ''}>
       {label}
     </button>
   )

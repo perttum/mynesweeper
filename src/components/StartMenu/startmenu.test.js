@@ -7,7 +7,7 @@ import { render, fireEvent } from '@testing-library/react'
 import StartMenu from './StartMenu'
 
 describe('Start menu', () => {
-  test.only('Start menu is rendered', () => {
+  test('Start menu is rendered', () => {
     const menu = render(
       <Provider store={store}>
         <StartMenu />

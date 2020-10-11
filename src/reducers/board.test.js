@@ -7,21 +7,24 @@ const testBoard = [
     locationX: 0,
     locationY: 0,
     mine: false,
-    neighbourMines: 1
+    neighbourMines: 1,
+    mark: 'none'
   },
   {
     open: false,
     locationX: 0,
     locationY: 1,
     mine: true,
-    neighbourMines: 0
+    neighbourMines: 0,
+    mark: 'none'
   },
   {
     open: false,
     locationX: 0,
     locationY: 2,
     mine: false,
-    neighbourMines: 1
+    neighbourMines: 1,
+    mark: 'none'
   }
   ], [
     {
@@ -29,21 +32,24 @@ const testBoard = [
       locationX: 1,
       locationY: 0,
       mine: false,
-      neighbourMines: 1
+      neighbourMines: 1,
+      mark: 'none'
     },
     {
       open: false,
       locationX: 1,
       locationY: 1,
       mine: false,
-      neighbourMines: 0
+      neighbourMines: 0,
+      mark: 'none'
     },
     {
       open: false,
       locationX: 1,
       locationY: 2,
       mine: false,
-      neighbourMines: 1
+      neighbourMines: 1,
+      mark: 'none'
     }
   ],[
     {
@@ -51,21 +57,24 @@ const testBoard = [
       locationX: 0,
       locationY: 0,
       mine: false,
-      neighbourMines: 0
+      neighbourMines: 0,
+      mark: 'none'
     },
     {
       open: false,
       locationX: 0,
       locationY: 1,
       mine: false,
-      neighbourMines: 0
+      neighbourMines: 0,
+      mark: 'none'
     },
     {
       open: false,
       locationX: 0,
       locationY: 2,
       mine: false,
-      neighbourMines: 0
+      neighbourMines: 0,
+      mark: 'none'
     }
   ]]
 
@@ -83,24 +92,24 @@ describe('Board reducer', () => {
     const newState = boardReducer(state, action)
     expect(newState).toEqual(testBoard)
   })
-  test('Mine amoun can be set', () => {
-    const action = {
-      type: 'MINEAMOUNT',
-      data: 3
-    }
-    const state = 0
-    deepfreeze(state)
-    const newState = boardReducer(state, action)
-    expect(newState).toBe(3)
-  })
-  test('Board size can be set', () => {
-    const action = {
-      type: 'BOARDSIZE',
-      data: 6
-    }
-    const state = 0
-    deepfreeze(state)
-    const newState = boardReducer(state, action)
-    expect(newState).toBe(6)
-  })
+  // test('Mine amount can be set', () => {
+  //   const action = {
+  //     type: 'MINEAMOUNT',
+  //     data: 3
+  //   }
+  //   const state = 0
+  //   deepfreeze(state)
+  //   const newState = boardReducer(state, action)
+  //   expect(newState).toBe(3)
+  // })
+  // test('Board size can be set', () => {
+  //   const action = {
+  //     type: 'BOARDSIZE',
+  //     data: 6
+  //   }
+  //   const state = 0
+  //   deepfreeze(state)
+  //   const newState = boardReducer(state, action)
+  //   expect(newState).toBe(6)
+  // })
 })

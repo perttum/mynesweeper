@@ -1,14 +1,13 @@
-import React from 'react';
-import './Header.css';
-import '../../index.css';
+import React from 'react'
+import './Header.css'
+import '../../index.css'
 
-const header = () => {
-    return(
-        <header>
-            <h2>sweeper-78</h2>
-            <button>back</button>
-        </header>
-    )
+const Header = () => {
+  return(
+    <header>
+      <h2>maSweepah</h2>
+    </header>
+  )
 }
 
-export default header;
+export default Header

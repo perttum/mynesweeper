@@ -1,19 +1,19 @@
 export const difficultySettings = [{
   difficulty: 'easy',
   mines: 8,
-  boardsize: 6
+  boardsize: 8
 }, {
   difficulty: 'medium',
   mines: 16,
-  boardsize: 12
+  boardsize: 16
 }, {
   difficulty: 'hard',
   mines: 24,
-  boardsize: 18
+  boardsize: 24
 },
 ]
 
-const initialState = 0
+const initialState = difficultySettings[0]
 
 const difficultyReducer = (state = initialState, action) => {
   switch(action.type){

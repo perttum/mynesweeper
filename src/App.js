@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setNewBoard } from './reducers/board'
 import { setDifficulty } from './reducers/difficulty'
 import { startGame } from './reducers/gamestate'
+import { setTilesAmount } from './reducers/tilesleft'
+import gameplay from './gamelogic/gameplay'
 
 function App() {
 
@@ -19,16 +21,16 @@ function App() {
   const dispatch = useDispatch()
 
   const handleDifficultyButtonClick = (event) => {
-    console.log('event.target.id: ', event.target.id)
     dispatch(setDifficulty(event.target.id))
   }
 
   const handleStartGameButtonClick = () => {
-    console.log('difficulty: ', difficulty)
-
     const newBoard = boardGen.createBoard(Number(difficulty.boardsize), Number(difficulty.mines))
+    const tilesLeft = (difficulty.boardsize * difficulty.boardsize) - difficulty.mines
+    dispatch(setTilesAmount(tilesLeft))
     dispatch(setNewBoard(newBoard))
     dispatch(startGame())
+    gameplay.startTimer()
   }
 
   switch(gameState){
