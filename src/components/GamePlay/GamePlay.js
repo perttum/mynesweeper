@@ -4,11 +4,11 @@ import GameOver from './GameOver/GameOver'
 import { useDispatch, useSelector } from 'react-redux'
 import { gameOver } from '../../reducers/gamestate'
 import { setNewBoard } from '../../reducers/board'
-import { subtractTile } from '../../reducers/tilesleft'
-// import { setPointerToDefault, setPointerToFlag, setPointerToQuestionMark } from '../../reducers/pointer'
+import tilesLeft from '../../reducers/tilesleft'
 import gameplay from '../../gamelogic/gameplay'
 import Footer from './Footer/Footer'
 import Timer from './Timer/Timer'
+import WinGame from './WinGame/WinGame'
 import './GamePlay.css'
 
 const GamePlay = (props) => {
@@ -17,7 +17,9 @@ const GamePlay = (props) => {
   const board = useSelector(state => state.boardReducer)
   const difficulty = useSelector(state => state.difficultyReducer)
   const pointer = useSelector(state => state.pointerReducer)
+  const tilesLeft = useSelector(state => state.tilesLeftReducer)
   const [gameover, setGameover] = useState(false)
+  const [winGame, setWinGame] = useState(false)
   const [timerActive, setTimerActive] = useState(true)
 
   const handleTileClick = (event) => {
@@ -26,20 +28,20 @@ const GamePlay = (props) => {
     const val = event.target.value
     const x = Number(val.substring(0, val.indexOf(',')))
     const y = Number(val.substring(val.indexOf(',') + 1, val.length))
+    // console.log(`x:${x} y:${y}`)
 
     let newBoard
 
     switch(pointer){
     case 'default':
-      newBoard = gameplay.openTile(x,y, board, difficulty.boardsize)
       // Check for mine
-      if(board[x][y].mine){
-        gameplay.gameOver(board)
+      if(board[y][x].mine){
+        gameplay.openBoard(board)
         setGameover(true)
         setTimerActive(false)
         gameplay.endTimer()
       } else {
-        dispatch(subtractTile())
+        newBoard = gameplay.openTile(x,y, board, difficulty.boardsize)
       }
       break
     case 'flag':
@@ -50,9 +52,12 @@ const GamePlay = (props) => {
       break
     default: break
     }
-
     newBoard && dispatch(setNewBoard(newBoard))
-
+    if(tilesLeft - 1 === 0){
+      setWinGame(true)
+      gameplay.openBoard(newBoard)
+      setTimerActive(false)
+    }
   }
 
   const handleGameOverButton = () => {
@@ -65,11 +70,11 @@ const GamePlay = (props) => {
       width: props.boardsize,
       height: props.boardsize
     }
+
     return(
       <div>
         <Timer active={timerActive}/>
         <div className="board" style={size}>
-          {gameover && <GameOver onClick={handleGameOverButton}/>}
           {board.map((col, x) => {
             return col.map((row, y) => {
               const tileName = `${x}${y}`
@@ -82,6 +87,8 @@ const GamePlay = (props) => {
           })}
         </div>
         <Footer />
+        {gameover && <GameOver onClick={handleGameOverButton}/>}
+        {winGame && <WinGame onClick={handleGameOverButton} />}
       </div>
     )
   }

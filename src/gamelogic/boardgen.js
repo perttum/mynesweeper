@@ -2,9 +2,9 @@ const createBoard = (boardSize, mineAmount) => {
 
   const newBoard = []
 
-  for (let x = 0; x < boardSize; x++)  {
+  for (let y = 0; y < boardSize; y++)  {
     newBoard.push([])
-    for (let y = 0; y < boardSize; y++) {
+    for (let x = 0; x < boardSize; x++) {
       const newTile = {
         open: false,
         locationX: x, // tile X Location on board
@@ -13,7 +13,7 @@ const createBoard = (boardSize, mineAmount) => {
         neighborMines: 0, // value to show in open tile (if the tile has mines on neighbour tiles)
         mark: 'none'
       }
-      newBoard[x][y] = newTile
+      newBoard[y][x] = newTile
     }
   }
   let boardTmp = createMines(newBoard, mineAmount, boardSize)
@@ -36,13 +36,13 @@ const createMines = (board, mineAmount, boardSize) => {
     }
 
     if(createdMines === 0){
-      board[randomX][randomY].mine = true
+      board[randomY][randomX].mine = true
       mineLocations.push(randomLocation)
       createdMines++
     } else{
-      if(!board[randomX][randomY].mine){
+      if(!board[randomY][randomX].mine){
         mineLocations.push(randomLocation)
-        board[randomX][randomY].mine = true
+        board[randomY][randomX].mine = true
         createdMines++
       }
     }
@@ -65,9 +65,9 @@ const createMineCounts = (board, mineLocations, boardSize) => {
           if(xLoc >= 0 && xLoc < boardSize){
             if(yLoc >= 0 && yLoc < boardSize){
               // If there is not already a mine in this location
-              if(!board[xLoc][yLoc].mine){
+              if(!board[yLoc][xLoc].mine){
                 //console.log(`add mine count to x:${xLoc}/y:${yLoc} from y:${location.x}/y:${location.y}`)
-                board[xLoc][yLoc].neighborMines += 1
+                board[yLoc][xLoc].neighborMines += 1
               }
               else{
                 //console.log(`..tried loc ${xLoc},${yLoc} but there was a mine.`)

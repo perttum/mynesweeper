@@ -1,81 +1,52 @@
-let tilesToOpen = []
-let tilesToCheck = []
+import store from '../store'
+import { subtractTile } from '../reducers/tilesleft'
 
 const openTile = (locX, locY, board, boardSize) => {
-
   const newBoard = [...board]
-  newBoard[locX][locY].open = true
-  checkNeighbours(locX, locY, newBoard, boardSize)
-  tilesToOpen.forEach((loc) => {
-    newBoard[loc.x][loc.y].open = true
-  })
+  newBoard[locY][locX].open = true
+  store.dispatch(subtractTile())
+  console.log('store: ', store.getState().tilesLeftReducer)
 
-  // if(board[locX][locY].neighborMines === 0){
-  //   //console.log(`I dont have mine neighbors!`)
-  //   for (let x = -1; x <= 1; x++){
-  //     for (let y = -1; y <= 1; y++){
-
-  //       let xLoc = locX + x
-  //       let yLoc = locY + y
-
-  //       if(xLoc >= 0 && xLoc < boardSize){
-  //         if(yLoc >= 0 && yLoc < boardSize){
-
-  //           if(!board[xLoc][yLoc].open){
-  //             //console.log(`add mine count to x:${xLoc}/y:${yLoc} from y:${location.x}/y:${location.y}`)
-  //             openTile(xLoc, yLoc, board, boardSize)
-  //           }
-  //           // else{
-  //           //   console.log(`..tried loc ${xLoc},${yLoc} but there was a mine.`)
-  //           // }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  return newBoard
-}
-
-const checkNeighbours = (startLocX, startLocY, board, boardSize) => {
-  tilesToOpen.push({ x: startLocY, y: startLocY })
-  if(board[startLocX][startLocY].neighborMines === 0){
+  if(newBoard[locY][locX].neighborMines === 0){
     //console.log(`I dont have mine neighbors!`)
     for (let x = -1; x <= 1; x++){
       for (let y = -1; y <= 1; y++){
 
-        let xLoc = startLocX + x
-        let yLoc = startLocY + y
+        let xLoc = locX + x
+        let yLoc = locY + y
 
         if(xLoc >= 0 && xLoc < boardSize){
           if(yLoc >= 0 && yLoc < boardSize){
 
-            if(!board[xLoc][yLoc].open && !(xLoc === 0 && yLoc === 0)){
-              tilesToOpen.push({ x: xLoc, y: yLoc })
-              
-              // checkNeighbours(xLoc, yLoc, board, boardSize)
+            if(!newBoard[yLoc][xLoc].open){
+              //console.log(`add mine count to x:${xLoc}/y:${yLoc} from y:${location.x}/y:${location.y}`)
+              openTile(xLoc, yLoc, newBoard, boardSize)
             }
+            // else{
+            //   console.log(`..tried loc ${xLoc},${yLoc} but there was a mine.`)
+            // }
           }
         }
       }
     }
   }
+  return newBoard
 }
 
 const markTile = (locX, locY, board, mark) => {
   const newBoard = [...board]
-  if(newBoard[locX][locY].mark === mark){
-    newBoard[locX][locY].mark = 'none'
+  if(newBoard[locY][locX].mark === mark){
+    newBoard[locY][locX].mark = 'none'
   } else {
-    newBoard[locX][locY].mark = mark
+    newBoard[locY][locX].mark = mark
   }
   return newBoard
 }
 
-const gameOver = (board) => {
-  console.log('Game Over!')
+const openBoard = (board) => {
   const newBoard = [...board]
   for (let x = 0; x < newBoard.length; x++) {
-    for (let y = 0; y < newBoard[x].length; y++) {
+    for (let y = 0; y < newBoard.length; y++) {
       newBoard[x][y].open = true
     }
   }
@@ -107,4 +78,4 @@ const endTimer = () => {
   timeCount = 0
 }
 
-export default { openTile, markTile, gameOver, startTimer, endTimer }
+export default { openTile, markTile, openBoard, startTimer, endTimer }

@@ -14,7 +14,7 @@ const Board = (props) => {
             const tileName = `${x}${y}`
             return <Tile
               key={tileName}
-              obj={props.board[x][y]}
+              obj={props.board[y][x]}
               onClick={props.onClickTile}
             />
           })

@@ -34,7 +34,7 @@ const Tile = (props) => {
   }
 
   return(
-    <button className="tile" style={style} onClick={props.onClick} value={tileId} disabled={obj.open ? 'true' : ''}>
+    <button className="tile" style={style} onClick={props.onClick} value={tileId} disabled={obj.open ? true : ''}>
       {label}
     </button>
   )
