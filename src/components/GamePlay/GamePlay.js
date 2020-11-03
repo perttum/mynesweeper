@@ -4,7 +4,7 @@ import GameOver from './GameOver/GameOver'
 import { useDispatch, useSelector } from 'react-redux'
 import { gameOver } from '../../reducers/gamestate'
 import { setNewBoard } from '../../reducers/board'
-import tilesLeft from '../../reducers/tilesleft'
+// import tilesLeft from '../../reducers/tilesleft'
 import gameplay from '../../gamelogic/gameplay'
 import Footer from './Footer/Footer'
 import Timer from './Timer/Timer'
@@ -74,17 +74,19 @@ const GamePlay = (props) => {
     return(
       <div>
         <Timer active={timerActive}/>
-        <div className="board" style={size}>
-          {board.map((col, x) => {
-            return col.map((row, y) => {
-              const tileName = `${x}${y}`
-              return <Tile
-                key={tileName}
-                obj={board[x][y]}
-                onClick={handleTileClick}
-              />
-            })
-          })}
+        <div id="board-container">
+          <div className="board" style={size}>
+            {board.map((col, x) => {
+              return col.map((row, y) => {
+                const tileName = `${x}${y}`
+                return <Tile
+                  key={tileName}
+                  obj={board[x][y]}
+                  onClick={handleTileClick}
+                />
+              })
+            })}
+          </div>
         </div>
         <Footer />
         {gameover && <GameOver onClick={handleGameOverButton}/>}

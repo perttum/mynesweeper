@@ -5,9 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: row; */
+  min-width: 100%;
+  min-height: 100%;
 }
 
 code {

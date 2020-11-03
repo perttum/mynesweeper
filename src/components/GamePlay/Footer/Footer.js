@@ -32,8 +32,10 @@ const Footer = () => {
 
   return(
     <div id="game-footer">
-      <PointerButton tool='flag' onClick={handlePointerButton} active={pointer === 'flag' ? true : false}/>
-      <PointerButton tool='question-mark' onClick={handlePointerButton} active={pointer === 'questionmark' ? true : false}/>
+      <div className="footer-container">
+        <PointerButton tool='flag' onClick={handlePointerButton} active={pointer === 'flag' ? true : false}/>
+        <PointerButton tool='question-mark' onClick={handlePointerButton} active={pointer === 'questionmark' ? true : false}/>
+      </div>
     </div>
   )
 }

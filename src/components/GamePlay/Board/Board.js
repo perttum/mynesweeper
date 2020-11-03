@@ -1,5 +1,6 @@
 import React from 'react'
 import Tile from './Tile/Tile'
+import './Board.css'
 
 const Board = (props) => {
   if(props.board !== null){
@@ -8,17 +9,19 @@ const Board = (props) => {
       heigth: props.boardSize
     }
     return(
-      <div className="board" style={size}>
-        {props.board.map((col, x) => {
-          return col.map((row, y) => {
-            const tileName = `${x}${y}`
-            return <Tile
-              key={tileName}
-              obj={props.board[y][x]}
-              onClick={props.onClickTile}
-            />
-          })
-        })}
+      <div id="board-container">
+        <div style={size}>
+          {props.board.map((col, x) => {
+            return col.map((row, y) => {
+              const tileName = `${x}${y}`
+              return <Tile
+                key={tileName}
+                obj={props.board[y][x]}
+                onClick={props.onClickTile}
+              />
+            })
+          })}
+        </div>
       </div>
     )
   }
