@@ -10,7 +10,7 @@ const Board = (props) => {
     }
     return(
       <div id="board-container">
-        <div style={size}>
+        <div style={size} className="board">
           {props.board.map((col, x) => {
             return col.map((row, y) => {
               const tileName = `${x}${y}`

@@ -1,4 +1,29 @@
-/* form{
-    padding: 2em;
-} */
+#start-menu{
+  width: 80%;
+  margin: 0 auto;
+}
 
+.difficulty-select{
+  display: block;
+  width: 100%;
+  border: 2px solid grey;
+  margin: 1em 0 1em 0;
+  text-align: center;
+  padding: 1em 0 1em 0;
+  box-sizing: border-box;
+}
+
+.difficulty-select:hover{
+  cursor: pointer;
+  border-color: dodgerblue;
+}
+
+.active{
+  border-color: rgb(5, 165, 112);
+}
+
+#start-game-button{
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+}

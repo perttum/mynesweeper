@@ -1,9 +1,8 @@
 #board-container{
-  width: 100vw;
-  height: 100vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  width: 100vh;
+  height: 100vw;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .board{
@@ -11,5 +10,4 @@
     background-color: lightgrey;
     border-left: 2px dotted lightGray;
     border-bottom: 2px dotted lightGray;
-    
 }

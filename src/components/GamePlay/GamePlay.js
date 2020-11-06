@@ -4,7 +4,6 @@ import GameOver from './GameOver/GameOver'
 import { useDispatch, useSelector } from 'react-redux'
 import { gameOver } from '../../reducers/gamestate'
 import { setNewBoard } from '../../reducers/board'
-// import tilesLeft from '../../reducers/tilesleft'
 import gameplay from '../../gamelogic/gameplay'
 import Footer from './Footer/Footer'
 import Timer from './Timer/Timer'
@@ -28,7 +27,6 @@ const GamePlay = (props) => {
     const val = event.target.value
     const x = Number(val.substring(0, val.indexOf(',')))
     const y = Number(val.substring(val.indexOf(',') + 1, val.length))
-    // console.log(`x:${x} y:${y}`)
 
     let newBoard
 

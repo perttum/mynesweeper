@@ -5,7 +5,6 @@ const openTile = (locX, locY, board, boardSize) => {
   const newBoard = [...board]
   newBoard[locY][locX].open = true
   store.dispatch(subtractTile())
-  console.log('store: ', store.getState().tilesLeftReducer)
 
   if(newBoard[locY][locX].neighborMines === 0){
     //console.log(`I dont have mine neighbors!`)
