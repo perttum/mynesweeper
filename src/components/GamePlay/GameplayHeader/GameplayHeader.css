@@ -1,4 +1,15 @@
 #gameplay-header{
   width: 100vw;
-  background-color: dodgerblue;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+}
+
+#quit-button{
+  padding: 1em;
+}
+
+#quit-button:hover{
+  cursor: pointer;
 }

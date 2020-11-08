@@ -1,10 +1,16 @@
 import React from 'react'
 import Timer from './Timer/Timer'
+import './GameplayHeader.css'
 
 const GameplayHeader = (props) => {
   return(
-    <div>
-      <Timer timerActive={props.timerActive}/>
+    <div id="gameplay-header">
+      <div>
+        <Timer timerActive={props.timerActive}/>
+      </div>
+      <div id="quit-button" onClick={props.handleGameOverButton}>
+        <span>X</span>
+      </div>
     </div>
   )
 }
