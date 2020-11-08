@@ -1,3 +1,17 @@
 #win-game{
-  background-color: darkorange;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+.win-game-container{
+  width: 140px;
+  height: 80px;
+  background-color: rgba(184, 135, 11, 0.575);
+  color: white;
+  text-align: center;
 }
