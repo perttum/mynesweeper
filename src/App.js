@@ -18,30 +18,12 @@ function App() {
   const gameState = useSelector(state => state.gameStateReducer)
   const tileSize = 40
 
-  // const dispatch = useDispatch()
-
-  // const handleDifficultyButtonClick = (event) => {
-  //   dispatch(setDifficulty(event.target.id))
-  // }
-
-  // const handleStartGameButtonClick = () => {
-  //   const newBoard = boardGen.createBoard(Number(difficulty.boardsize), Number(difficulty.mines))
-  //   const tilesLeft = (difficulty.boardsize * difficulty.boardsize) - difficulty.mines
-  //   dispatch(setTilesAmount(tilesLeft))
-  //   dispatch(setNewBoard(newBoard))
-  //   dispatch(startGame())
-  //   gameplay.startTimer()
-  // }
-
   switch(gameState){
   case 'menu':
     return(
       <div>
         <Header />
-        <StartMenu
-          // handleStartGameButtonClick = {handleStartGameButtonClick}
-          // handleSetDifficultyButtonClick = {handleDifficultyButtonClick}
-        />
+        <StartMenu/>
       </div>
     )
   case 'game':

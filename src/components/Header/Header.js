@@ -5,7 +5,7 @@ import '../../index.css'
 const Header = () => {
   return(
     <header>
-      <h2>maSweepah</h2>
+      <h2>MyneSweeper</h2>
     </header>
   )
 }

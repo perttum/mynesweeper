@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import './Timer.css'
 
-const Timer = ({ active }) => {
+const Timer = ({ timerActive }) => {
 
   const [seconds, setSeconds] = useState(0)
 
   useEffect(() => {
     let interval = null
-    if(active){
+    if(timerActive){
       interval = setInterval(() => {
         setSeconds((seconds => seconds + 1))
       }, 1000)
@@ -15,7 +15,7 @@ const Timer = ({ active }) => {
       clearInterval(interval)
     }
     return () => clearInterval(interval)
-  }, [active])
+  }, [timerActive])
 
   return(
     <div id="timer">

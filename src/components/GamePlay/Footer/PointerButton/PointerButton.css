@@ -8,6 +8,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1.3em;
+  margin: 0 0 1em 1em;
+  border-radius: 16px;
 }
 
 .pointer-button:hover{

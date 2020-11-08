@@ -6,8 +6,9 @@ import { gameOver } from '../../reducers/gamestate'
 import { setNewBoard } from '../../reducers/board'
 import gameplay from '../../gamelogic/gameplay'
 import Footer from './Footer/Footer'
-import Timer from './Timer/Timer'
+import Timer from './GameplayHeader/Timer/Timer'
 import WinGame from './WinGame/WinGame'
+import GameplayHeader from './GameplayHeader/GameplayHeader'
 import './GamePlay.css'
 
 const GamePlay = (props) => {
@@ -71,7 +72,8 @@ const GamePlay = (props) => {
 
     return(
       <div>
-        <Timer active={timerActive}/>
+        <GameplayHeader timerActive={timerActive} />
+        {/* <Timer active={timerActive}/> */}
         <div id="board-container">
           <div className="board" style={size}>
             {board.map((col, x) => {
@@ -85,8 +87,8 @@ const GamePlay = (props) => {
               })
             })}
           </div>
+          <Footer />
         </div>
-        <Footer />
         {gameover && <GameOver onClick={handleGameOverButton}/>}
         {winGame && <WinGame onClick={handleGameOverButton} />}
       </div>

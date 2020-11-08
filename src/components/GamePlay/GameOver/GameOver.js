@@ -3,9 +3,11 @@ import './GameOver.css'
 
 const GameOver = ({ onClick }) => {
   return(
-    <div>
-      <h3>GameOver</h3>
-      <button onClick={onClick}>Menu</button>
+    <div id="game-over">
+      <div className="game-over-container">
+        <h3>GameOver</h3>
+        <button onClick={onClick}>Menu</button>
+      </div>
     </div>
   )
 }

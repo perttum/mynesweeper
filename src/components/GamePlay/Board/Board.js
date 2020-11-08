@@ -9,7 +9,7 @@ const Board = (props) => {
       heigth: props.boardSize
     }
     return(
-      <div id="board-container">
+      <div id="board-container" name="board">
         <div style={size} className="board">
           {props.board.map((col, x) => {
             return col.map((row, y) => {
