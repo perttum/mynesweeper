@@ -9,6 +9,8 @@ import Footer from './Footer/Footer'
 import WinGame from './WinGame/WinGame'
 import GameplayHeader from './GameplayHeader/GameplayHeader'
 import './GamePlay.css'
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+
 
 const GamePlay = (props) => {
 
@@ -71,25 +73,28 @@ const GamePlay = (props) => {
 
     return(
       <div>
-        <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
-        {/* <Timer active={timerActive}/> */}
-        <div id="board-container">
-          <div className="board" style={size}>
-            {board.map((col, x) => {
-              return col.map((row, y) => {
-                const tileName = `${x}${y}`
-                return <Tile
-                  key={tileName}
-                  obj={board[x][y]}
-                  onClick={handleTileClick}
-                />
-              })
-            })}
-          </div>
+        <TransformWrapper>
+          <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
+          <TransformComponent>
+            <div id="board-container">
+              <div className="board" style={size}>
+                {board.map((col, x) => {
+                  return col.map((row, y) => {
+                    const tileName = `${x}${y}`
+                    return <Tile
+                      key={tileName}
+                      obj={board[x][y]}
+                      onClick={handleTileClick}
+                    />
+                  })
+                })}
+              </div>
+            </div>
+          </TransformComponent>
           <Footer />
-        </div>
-        {gameover && <GameOver onClick={handleGameOverButton}/>}
-        {winGame && <WinGame onClick={handleGameOverButton} />}
+          {gameover && <GameOver onClick={handleGameOverButton}/>}
+          {winGame && <WinGame onClick={handleGameOverButton} />}
+        </TransformWrapper>
       </div>
     )
   }
