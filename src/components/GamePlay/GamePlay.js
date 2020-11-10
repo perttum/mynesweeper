@@ -73,10 +73,10 @@ const GamePlay = (props) => {
 
     return(
       <div>
-        <TransformWrapper>
           <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
-          <TransformComponent>
+            <TransformWrapper limitToBounds={false} defaultScale={1}>
             <div id="board-container">
+            <TransformComponent>
               <div className="board" style={size}>
                 {board.map((col, x) => {
                   return col.map((row, y) => {
@@ -89,12 +89,12 @@ const GamePlay = (props) => {
                   })
                 })}
               </div>
+                </TransformComponent>
             </div>
-          </TransformComponent>
+              </TransformWrapper>
           <Footer />
           {gameover && <GameOver onClick={handleGameOverButton}/>}
           {winGame && <WinGame onClick={handleGameOverButton} />}
-        </TransformWrapper>
       </div>
     )
   }

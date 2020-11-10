@@ -1,12 +1,18 @@
 #board-container{
-  width: 100vw;
+  width: calc(100vw - 16px);
   height: 90vh;
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* display: table-cell;
+  vertical-align: middle; */
+  margin: auto auto;
+  background-color: rgb(51, 51, 51);
+
 }
 
 .board{
-    margin: auto auto;
+    /* margin: auto auto; */
     background-color: lightgrey;
     border-left: 2px dotted lightGray;
     border-bottom: 2px dotted lightGray;
