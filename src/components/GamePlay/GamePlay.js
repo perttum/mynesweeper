@@ -73,7 +73,7 @@ const GamePlay = (props) => {
     return(
       <div>
         <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
-        <TransformWrapper limitToBounds={false} defaultScale={1}>
+        <TransformWrapper limitToBounds={true} limitToWrapper={true} defaultScale={1}>
           <div id="board-container">
             <TransformComponent>
               <div className="board" style={size}>

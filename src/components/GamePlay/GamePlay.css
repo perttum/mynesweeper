@@ -6,6 +6,8 @@
   justify-content: center;
   vertical-align: middle;
   margin: auto auto;
+  background-color: rgb(49, 49, 49);
+  overflow: hidden;
 }
 
 .board{
