@@ -9,8 +9,7 @@ import Footer from './Footer/Footer'
 import WinGame from './WinGame/WinGame'
 import GameplayHeader from './GameplayHeader/GameplayHeader'
 import './GamePlay.css'
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 
 const GamePlay = (props) => {
 
@@ -73,9 +72,9 @@ const GamePlay = (props) => {
 
     return(
       <div>
-          <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
-            <TransformWrapper limitToBounds={false} defaultScale={1}>
-            <div id="board-container">
+        <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
+        <TransformWrapper limitToBounds={false} defaultScale={1}>
+          <div id="board-container">
             <TransformComponent>
               <div className="board" style={size}>
                 {board.map((col, x) => {
@@ -89,12 +88,12 @@ const GamePlay = (props) => {
                   })
                 })}
               </div>
-                </TransformComponent>
-            </div>
-              </TransformWrapper>
-          <Footer />
-          {gameover && <GameOver onClick={handleGameOverButton}/>}
-          {winGame && <WinGame onClick={handleGameOverButton} />}
+            </TransformComponent>
+          </div>
+        </TransformWrapper>
+        <Footer />
+        {gameover && <GameOver onClick={handleGameOverButton}/>}
+        {winGame && <WinGame onClick={handleGameOverButton} />}
       </div>
     )
   }

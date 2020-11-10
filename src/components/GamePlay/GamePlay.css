@@ -1,12 +1,11 @@
 #board-container{
   width: calc(100vw - 20px);
-  height: calc(100vw - 20px);
+  height: calc(100vh - 20px);
   display: flex;
   align-items: center;
   justify-content: center;
   vertical-align: middle;
   margin: auto auto;
-
 }
 
 .board{
