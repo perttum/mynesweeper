@@ -64,33 +64,52 @@ const GamePlay = (props) => {
   }
 
   if(board !== null){
+
     const size = {
-      // boardsize={tileSize * difficulty.boardsize}
       width: props.boardsize,
-      height: props.boardsize
+      height: props.boardsize,
+    }
+
+    const wrapperOptions = {
+      limitToBounds: false,
+      limitToWrapper: false,
+      defaultPositionX: size.width / 2,
+      defauttPositionY: size.height / 2
+    }
+
+    const wrapperBounds = {
+      width: size.width * 4,
+      height: size.height * 3,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
     }
 
     return(
       <div>
         <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
-        <TransformWrapper limitToBounds={true} limitToWrapper={true} defaultScale={1}>
-          <div id="board-container">
+          <TransformWrapper options={wrapperOptions}>
+        <div id="board-container">
             <TransformComponent>
-              <div className="board" style={size}>
-                {board.map((col, x) => {
-                  return col.map((row, y) => {
-                    const tileName = `${x}${y}`
-                    return <Tile
-                      key={tileName}
-                      obj={board[x][y]}
-                      onClick={handleTileClick}
-                    />
-                  })
-                })}
-              </div>
+              {/* <div style={wrapperBounds}> */}
+
+              
+                <div className="board" style={size}>
+                  {board.map((col, x) => {
+                    return col.map((row, y) => {
+                      const tileName = `${x}${y}`
+                      return <Tile
+                        key={tileName}
+                        obj={board[x][y]}
+                        onClick={handleTileClick}
+                      />
+                    })
+                  })}
+                </div>
+              {/* </div> */}
             </TransformComponent>
-          </div>
-        </TransformWrapper>
+        </div>
+          </TransformWrapper>
         <Footer />
         {gameover && <GameOver onClick={handleGameOverButton}/>}
         {winGame && <WinGame onClick={handleGameOverButton} />}

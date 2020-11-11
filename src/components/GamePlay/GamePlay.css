@@ -1,11 +1,12 @@
 #board-container{
   width: calc(100vw - 20px);
-  height: calc(100vh - 60px);
+  height: calc(100vh - 20px);
   display: flex;
   align-items: center;
   justify-content: center;
   vertical-align: middle;
   margin: auto auto;
+  /* align-self: center; */
   background-color: rgb(49, 49, 49);
   overflow: hidden;
 }
