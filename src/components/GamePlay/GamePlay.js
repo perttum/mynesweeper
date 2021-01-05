@@ -73,8 +73,8 @@ const GamePlay = (props) => {
     const wrapperOptions = {
       limitToBounds: false,
       limitToWrapper: false,
-      defaultPositionX: size.width / 2,
-      defauttPositionY: size.height / 2
+      defaultPositionX: window.innerWidth / 2,
+      defauttPositionY: window.innerHeight / 2
     }
 
     const wrapperBounds = {
@@ -88,28 +88,25 @@ const GamePlay = (props) => {
     return(
       <div>
         <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
-          <TransformWrapper options={wrapperOptions}>
-        <div id="board-container">
+        <TransformWrapper options={wrapperOptions}>
+          <div id="board-container">
             <TransformComponent>
-              {/* <div style={wrapperBounds}> */}
 
-              
-                <div className="board" style={size}>
-                  {board.map((col, x) => {
-                    return col.map((row, y) => {
-                      const tileName = `${x}${y}`
-                      return <Tile
-                        key={tileName}
-                        obj={board[x][y]}
-                        onClick={handleTileClick}
-                      />
-                    })
-                  })}
-                </div>
-              {/* </div> */}
+              <div className="board" style={size}>
+                {board.map((col, x) => {
+                  return col.map((row, y) => {
+                    const tileName = `${x}${y}`
+                    return <Tile
+                      key={tileName}
+                      obj={board[x][y]}
+                      onClick={handleTileClick}
+                    />
+                  })
+                })}
+              </div>
             </TransformComponent>
-        </div>
-          </TransformWrapper>
+          </div>
+        </TransformWrapper>
         <Footer />
         {gameover && <GameOver onClick={handleGameOverButton}/>}
         {winGame && <WinGame onClick={handleGameOverButton} />}
