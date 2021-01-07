@@ -6,15 +6,13 @@
   justify-content: center;
   vertical-align: middle;
   margin: auto auto;
-  /* align-self: center; */
-  background-color: rgb(49, 49, 49);
   overflow: hidden;
 }
 
 .board{
   background-color: lightgrey;
-  border-left: 2px dotted lightGray;
-  border-bottom: 2px dotted lightGray;
+  border-left: 2px solid lightGray;
+  border-bottom: 2px solid lightGray;
 }
 
 .TransformComponent-module_container__3NwNd{
