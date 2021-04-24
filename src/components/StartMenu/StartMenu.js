@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './StartMenu.css'
+import './StartMenu.scss'
 import boardGen from '../../gamelogic/boardgen'
 import { setNewBoard } from '../../reducers/board'
 import { useDispatch, useSelector } from 'react-redux'
@@ -50,15 +50,15 @@ const StartMenu = () => {
   return(
     <div id="start-menu">
       <h2>Start menu</h2>
-      <div className={selectedButton === 0 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'} id="0" onClick={handleDifficultyButtonClick}>
-        <span>easy</span>
-      </div>
-      <div className={selectedButton === 1 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'} id="1" onClick={handleDifficultyButtonClick}>
-        <span>medium</span>
-      </div>
-      <div className={selectedButton === 2 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'} id="2" onClick={handleDifficultyButtonClick}>
-        <span>hard</span>
-      </div>
+      <button className={selectedButton === 0 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'} id="0" onClick={handleDifficultyButtonClick}>
+        easy
+      </button>
+      <button className={selectedButton === 1 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'} id="1" onClick={handleDifficultyButtonClick}>
+        medium
+      </button>
+      <button className={selectedButton === 2 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'} id="2" onClick={handleDifficultyButtonClick}>
+        hard
+      </button>
 
       <button id="start-game-button" className="menu-button" onClick={handleStartGameButtonClick}>Start game</button>
     </div>

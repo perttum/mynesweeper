@@ -25,7 +25,10 @@ describe('Start menu', () => {
     )
 
     const button = menu.getByText('easy')
+
     fireEvent.click(button)
+    console.log('calls: ', mockHandler.mock.calls)
+
     expect(mockHandler.mock.calls).toHaveLength(1)
   })
   test('Medium difficulty button can be clicked', () => {

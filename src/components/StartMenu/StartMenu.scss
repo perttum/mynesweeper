@@ -1,0 +1,44 @@
+#start-menu{
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu-button{
+  display: block;
+  width: 320px;
+  border: 2px solid grey;
+  margin: 1em 0 1em 0;
+  text-align: center;
+  padding: 1em 0 1em 0;
+  box-sizing: border-box;
+  border-radius: 40px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.difficulty-select{
+  
+}
+
+.difficulty-select:hover{
+  cursor: pointer;
+  background-color: teal;
+  color: white;
+}
+
+.active{
+  border-color: rgb(5, 165, 112);
+  background-color: green;
+  color: white;
+}
+
+#start-game-button{
+  color: white;
+  background-color: brown;
+  border-color: blueviolet;
+}

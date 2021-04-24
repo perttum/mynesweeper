@@ -77,14 +77,6 @@ const GamePlay = (props) => {
       defauttPositionY: window.innerHeight / 2
     }
 
-    // const wrapperBounds = {
-    //   width: size.width * 4,
-    //   height: size.height * 3,
-    //   display: 'flex',
-    //   justifyContent: 'center',
-    //   alignItems: 'center'
-    // }
-
     return(
       <div>
         <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>

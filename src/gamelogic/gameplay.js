@@ -34,11 +34,12 @@ const openTile = (locX, locY, board, boardSize) => {
 
 const markTile = (locX, locY, board, mark) => {
   const newBoard = [...board]
-  if(newBoard[locY][locX].mark === mark){
-    newBoard[locY][locX].mark = 'none'
-  } else {
-    newBoard[locY][locX].mark = mark
-  }
+  newBoard[locY][locX].mark = newBoard[locY][locX].mark === mark ? 'none' : mark
+  // if(newBoard[locY][locX].mark === mark){
+  //   newBoard[locY][locX].mark = 'none'
+  // } else {
+  //   newBoard[locY][locX].mark = mark
+  // }
   return newBoard
 }
 
