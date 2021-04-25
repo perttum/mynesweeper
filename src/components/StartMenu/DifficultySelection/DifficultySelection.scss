@@ -1,0 +1,58 @@
+$button-color: white;
+$button-active-color: rgb(81, 255, 65);
+// $button-hover-color: rgb(81, 255, 65);
+
+#difficulty-selection{
+  min-width: 80%;
+  // height: 100vh;
+  // margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+}
+
+.menu-button{
+  // display: block;
+  width: 20%;
+  min-width: 51px;
+  height: 48px;
+  border: 2px solid white;
+  margin: 0.5em;
+  text-align: center;
+  padding: 1em 0 1em 0;
+  box-sizing: border-box;
+  border-radius: 40px;
+  font-size: 12px;
+  // background-color: black;
+  background: none;
+  color: $button-color;
+  text-transform: uppercase;
+}
+
+.menu-button:focus{
+  outline: none;
+}
+
+.difficulty-select{
+  
+}
+
+.menu-button:hover{
+  cursor: pointer;
+  border-color: $button-active-color;
+  color: $button-active-color;
+}
+
+.active{
+  border-color: $button-active-color;
+  color: $button-active-color;
+  pointer-events: none;
+}
+
+// #start-game-button{
+//   color: white;
+//   background-color: brown;
+//   border-color: blueviolet;
+// }

@@ -10,9 +10,8 @@
 }
 
 .board{
-  background-color: lightgrey;
-  border-left: 2px solid lightGray;
-  border-bottom: 2px solid lightGray;
+  /* border-left: 2px solid lightGray;
+  border-bottom: 2px solid lightGray; */
 }
 
 .TransformComponent-module_container__3NwNd{

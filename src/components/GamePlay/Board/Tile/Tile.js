@@ -11,9 +11,10 @@ const Tile = (props) => {
 
   if(obj.open){
     style = {
-      backgroundColor: '#f5f5f5',
-      borderTop: '1px solid lightGray',
-      borderLeft: '1px solid lightGray',
+      background: 'rgba(125, 12, 150, 0.1)',
+      // border: 'none',
+      borderTop: '1px solid #270c40',
+      borderLeft: '1px solid #270c40',
       borderRight: 'none',
       borderBottom: 'none',
       cursor: 'default'
