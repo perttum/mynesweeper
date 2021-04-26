@@ -4,12 +4,19 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  h1{
+    color: white;
+    position: absolute;
+    z-index: 100;
+    padding-top: 130px;
+    letter-spacing: 2px;
+  }
 }
 
 #bomb{
   font-size: 120px;
   position: absolute;
-  z-index: 1000;
+  z-index: 90;
   // width: 100%;
   text-align: center;
   transform-origin: 60px 60px;

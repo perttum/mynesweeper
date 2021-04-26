@@ -7,6 +7,9 @@ const Logo = () => {
   return(
     <>
       <div id="logo">
+        <h1>
+            Myne Sweeper
+        </h1>
         <div id="bomb">
           <FontAwesomeIcon icon={faBomb} />
         </div>
@@ -14,9 +17,6 @@ const Logo = () => {
           <FontAwesomeIcon icon={faBahai} />
         </div>
       </div>
-      <h1>
-          MyneSweeper
-      </h1>
     </>
   )
 }
