@@ -33,10 +33,10 @@ const Tile = (props) => {
 
   if(obj.open){
     style = {
-      background: 'rgb(7, 129, 158, 0.4)',
+      background: 'rgba(51, 51, 51, 0.7)',
       border: 0,
-      borderTop: '1px solid rgba(0, 0, 0, 0.2)',
-      borderLeft: '1px solid rgba(0, 0, 0, 0.2)',
+      borderTop: '1px solid rgba(255, 255, 255, 0.2)',
+      borderLeft: '1px solid rgba(255, 255, 255, 0.2)',
       borderRight: 'none',
       borderBottom: 'none',
       cursor: 'default',

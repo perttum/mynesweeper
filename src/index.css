@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Share&family=Boogaloo&family=Unica+One&family=Zen+Dots&display=swap');
 
-:root{
-  --bg-color: rgb(0, 0, 0);
-  --dark-gray: rgb(49, 49, 49);
-}
-
 html, body{
   height: 100%;
 }
@@ -20,10 +15,10 @@ body {
   background: -moz-linear-gradient(32deg, rgba(39,12,64,1) 4%, rgba(61,11,27,1) 100%);
   background: -webkit-linear-gradient(32deg, rgba(39,12,64,1) 4%, rgba(61,11,27,1) 100%);
   background: linear-gradient(32deg, rgba(39,12,64,1) 4%, rgba(61,11,27,1) 100%); */
-  background: rgb(2, 25, 31);
-/* background: -moz-linear-gradient(32deg, rgba(7,129,158,1) 4%, rgba(20,8,111,1) 89%);
-background: -webkit-linear-gradient(32deg, rgba(7,129,158,1) 4%, rgba(20,8,111,1) 89%);
-background: linear-gradient(32deg, rgba(7,129,158,1) 4%, rgba(20,8,111,1) 89%); */
+  /* background: rgb(31, 31, 31); */
+
+
+  background: rgb(33,33,33);
 }
 
 button{
