@@ -33,7 +33,7 @@ const DifficultySelection = () => {
   }
   return(
     <>
-      <h3>Set board size:</h3>
+      <h3>New Game</h3>
       <div id="difficulty-selection">
         <button
           className={selectedButton === 0 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}

@@ -1,16 +1,17 @@
 #logo{
   width: 100%;
-  min-height: 300px;
+  min-height: 170px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   h1{
-    color: white;
+    color: rgb(196, 11, 11);
     position: absolute;
     z-index: 100;
-    padding-top: 130px;
+    padding-top: 40px;
     letter-spacing: 2px;
+    margin: 0;
   }
 }
 
@@ -19,26 +20,8 @@
   position: absolute;
   z-index: 90;
   // width: 100%;
-  text-align: center;
-  transform-origin: 60px 60px;
+  // text-align: center;
+  // transform-origin: 60px 60px;
   padding-left: 22px;
-  padding-bottom: 22px;
   color: white;
-}
-
-#explosion{
-  // transform-origin: 90px 90px;
-  color: rgba(0, 0, 0, 0.3);
-  font-size: 250px;
-  animation: spin 10s linear infinite;
-  position: absolute;
-  z-index: 20;
-}
-
-@keyframes spin {
-  100%{ 
-    -webkit-transform: rotate(360deg);
-    transform:rotate(360deg);
-    transform-origin: center;
-  }
 }

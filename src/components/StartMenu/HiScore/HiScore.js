@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import './HiScore.scss'
 import storager from '../../../utils/storager'
+import Star from '../../General/Star/Star'
 
 const HiScore = () => {
 
-  const [smallHiScore, setSmallHiScore] = useState('xxx')
-  const [bigHiScore, setBigHiScore] = useState('xxx')
-  const [hugeHiScore, setHugeHiScore] = useState('xxx')
+  const [smallHiScore, setSmallHiScore] = useState(null)
+  const [bigHiScore, setBigHiScore] = useState(null)
+  const [hugeHiScore, setHugeHiScore] = useState(null)
 
   useEffect(() => {
-    setSmallHiScore(storager.getFromStorage('myne-sweeper-hi-score-easy') || 'xxx')
-    setBigHiScore(storager.getFromStorage('myne-sweeper-hi-score-medium') || 'xxx')
-    setHugeHiScore(storager.getFromStorage('myne-sweeper-hi-score-hard') || 'xxx')
+    setSmallHiScore(storager.getFromStorage('myne-sweeper-hi-score-easy'))
+    setBigHiScore(storager.getFromStorage('myne-sweeper-hi-score-medium'))
+    setHugeHiScore(storager.getFromStorage('myne-sweeper-hi-score-hard'))
   }, [])
 
   const clearHiScore = () => {
-    setSmallHiScore('xxx')
-    setBigHiScore('xxx')
-    setHugeHiScore('xxx')
+    setSmallHiScore(null)
+    setBigHiScore(null)
+    setHugeHiScore(null)
     storager.clearStorage()
   }
 
+  // Render stuff
+  const displaySmallHiScore = smallHiScore ? smallHiScore + ' sec' : '---'
+  const displayBigHiScore = bigHiScore ? bigHiScore + ' sec' : '---'
+  const displayHugeHiScore = hugeHiScore ? hugeHiScore + ' sec' : '---'
   return(
     <div id="hi-score">
-      <h4>Best times</h4>
-      <p>Small: {smallHiScore} sec</p>
-      <p>Big: {bigHiScore} sec</p>
-      <p>Huge: {hugeHiScore} sec</p>
+      <h4><Star/> Bestest times <Star/></h4>
+      <p>Small: {displaySmallHiScore}</p>
+      <p>Big: {displayBigHiScore}</p>
+      <p>Huge: {displayHugeHiScore}</p>
       <button onClick={clearHiScore}>clear</button>
     </div>
   )

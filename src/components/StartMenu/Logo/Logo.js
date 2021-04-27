@@ -1,7 +1,7 @@
 import React from 'react'
 import './Logo.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBomb, faBahai } from '@fortawesome/free-solid-svg-icons'
+import { faBomb } from '@fortawesome/free-solid-svg-icons'
 
 const Logo = () => {
   return(
@@ -12,9 +12,6 @@ const Logo = () => {
         </h1>
         <div id="bomb">
           <FontAwesomeIcon icon={faBomb} />
-        </div>
-        <div id="explosion">
-          <FontAwesomeIcon icon={faBahai} />
         </div>
       </div>
     </>

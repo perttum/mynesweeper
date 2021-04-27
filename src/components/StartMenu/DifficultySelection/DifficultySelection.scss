@@ -15,8 +15,9 @@ $button-active-color: rgb(81, 255, 65);
 
 .menu-button{
   // display: block;
-  width: 20%;
-  min-width: 51px;
+  width: 51px;
+  // max-width: 100px;
+  // min-width: 51px;
   height: 48px;
   border: 2px solid white;
   margin: 0.5em;
@@ -35,10 +36,6 @@ $button-active-color: rgb(81, 255, 65);
   outline: none;
 }
 
-.difficulty-select{
-  
-}
-
 .menu-button:hover{
   cursor: pointer;
   border-color: $button-active-color;
@@ -50,9 +47,3 @@ $button-active-color: rgb(81, 255, 65);
   color: $button-active-color;
   pointer-events: none;
 }
-
-// #start-game-button{
-//   color: white;
-//   background-color: brown;
-//   border-color: blueviolet;
-// }
