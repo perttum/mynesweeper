@@ -1,11 +1,14 @@
+  $border-dark: rgb(71, 71, 71);
+  $border-light: rgb(192, 192, 192);
+  
   .tile{
     width: 40px;
     height: 40px;
-    background: rgb(68, 64, 67);
-    border-left: 1px solid rgb(121, 121, 121);
-    border-top: 1px solid rgb(121, 121, 121);
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    background: rgb(139, 139, 139);
+    border-left: 1px solid $border-light;
+    border-top: 1px solid $border-light;
+    border-right: 1px solid $border-dark;
+    border-bottom: 1px solid $border-dark;
     /* border: none; */
     margin: 0;
     text-align: center;

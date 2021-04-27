@@ -1,5 +1,5 @@
 import React from 'react'
-import './WinGame.css'
+import './WinGame.scss'
 
 const WinGame = (props) => {
   return(

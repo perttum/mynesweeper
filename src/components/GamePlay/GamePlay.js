@@ -117,6 +117,8 @@ const GamePlay = (props) => {
 
         <TransformWrapper options={wrapperOptions}>
           <div id="board-container">
+            {tilesLeft === 0 && <WinGame onClick={handleGameOverButton} />}
+            {gameover && <GameOver onClick={handleGameOverButton}/>}
             <TransformComponent>
 
               <div className="board" style={size}>
@@ -124,9 +126,9 @@ const GamePlay = (props) => {
                   return col.map((row, y) => {
                     const tileName = `${x}${y}`
                     return <Tile
-                      key={tileName}
-                      obj={board[x][y]}
-                      onClick={handleTileClick}
+                    key={tileName}
+                    obj={board[x][y]}
+                    onClick={handleTileClick}
                     />
                   })
                 })}
@@ -135,8 +137,6 @@ const GamePlay = (props) => {
           </div>
         </TransformWrapper>
         <Footer />
-        {gameover && <GameOver onClick={handleGameOverButton}/>}
-        {tilesLeft === 0 && <WinGame onClick={handleGameOverButton} />}
       </div>
     )
   }

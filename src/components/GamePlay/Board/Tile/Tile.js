@@ -1,5 +1,5 @@
 import React from 'react'
-import './Tile.css'
+import './Tile.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBomb, faFlag, faQuestion } from '@fortawesome/free-solid-svg-icons'
 
@@ -33,9 +33,10 @@ const Tile = (props) => {
 
   if(obj.open){
     style = {
-      background: 'rgba(125, 12, 150, 0.1)',
-      borderTop: '1px solid #270c40',
-      borderLeft: '1px solid #270c40',
+      background: 'rgb(7, 129, 158, 0.4)',
+      border: 0,
+      borderTop: '1px solid rgba(0, 0, 0, 0.2)',
+      borderLeft: '1px solid rgba(0, 0, 0, 0.2)',
       borderRight: 'none',
       borderBottom: 'none',
       cursor: 'default',
