@@ -14,6 +14,7 @@ function App() {
   const gamePlayComponent = <GamePlay
     board={board !== null ? board : null}
     boardsize={tileSize * difficulty.boardsize}
+    difficulty={difficulty.difficulty}
   />
 
   return(

@@ -6,7 +6,7 @@ const GameplayHeader = (props) => {
   return(
     <div id="gameplay-header">
       <div>
-        <Timer timerActive={props.timerActive}/>
+        <Timer time={props.time} timerActive={props.timerActive}/>
       </div>
       <div id="quit-button" onClick={props.handleGameOverButton}>
         <span>X</span>

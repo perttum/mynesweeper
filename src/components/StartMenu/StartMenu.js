@@ -7,6 +7,8 @@ import DifficultySelection from './DifficultySelection/DifficultySelection'
 import { startGame } from '../../reducers/gamestate'
 import { setTilesAmount } from '../../reducers/tilesleft'
 import Logo from './Logo/Logo'
+import DifficultyInfo from './DifficultyInfo/DifficultyInfo'
+import HiScore from './HiScore/HiScore'
 import gameplay from '../../gamelogic/gameplay'
 
 const StartMenu = () => {
@@ -14,30 +16,6 @@ const StartMenu = () => {
   const dispatch = useDispatch()
 
   const difficulty = useSelector(state => state.difficultyReducer)
-  // const [selectedButton, setSelectedButton] = useState(0)
-
-  // useEffect(() => {
-  //   if(difficulty){
-  //     switch(difficulty.difficulty){
-  //     case 'easy':
-  //       setSelectedButton(0)
-  //       break
-  //     case 'medium':
-  //       setSelectedButton(1)
-  //       break
-  //     case 'hard':
-  //       setSelectedButton(2)
-  //       break
-
-  //     default: return null
-  //     }
-  //   }
-  // }, [])
-
-  // const handleDifficultyButtonClick = (event) => {
-  //   dispatch(setDifficulty(event.target.id))
-  //   setSelectedButton(Number(event.target.id))
-  // }
 
   const handleStartGameButtonClick = () => {
     const newBoard = boardGen.createBoard(Number(difficulty.boardsize), Number(difficulty.mines))
@@ -51,7 +29,9 @@ const StartMenu = () => {
   return(
     <div id="start-menu">
       <Logo/>
+      <HiScore/>
       <DifficultySelection/>
+      <DifficultyInfo/>
       <button id="start-game-button"
         onClick={handleStartGameButtonClick}
       >

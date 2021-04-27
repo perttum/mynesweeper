@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Tile from './Board/Tile/Tile'
 import GameOver from './GameOver/GameOver'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,6 +10,7 @@ import WinGame from './WinGame/WinGame'
 import GameplayHeader from './GameplayHeader/GameplayHeader'
 import './GamePlay.css'
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
+import storager from '../../utils/storager'
 
 const GamePlay = (props) => {
 
@@ -21,8 +22,45 @@ const GamePlay = (props) => {
   const [gameover, setGameover] = useState(false)
   const [winGame, setWinGame] = useState(false)
   const [timerActive, setTimerActive] = useState(true)
+  const [time, setTime] = useState(0)
 
-  const handleTileClick = (event) => {
+  const setHiScore = () => {
+    // setTimerActive(false)
+    const key = `myne-sweeper-hi-score-${difficulty.difficulty}`
+    console.log('key: ', key)
+
+    const currentHiScore = storager.getFromStorage(key)
+    if(!currentHiScore || currentHiScore > time){
+      console.log('new hiscore! ', time)
+      storager.saveToStorage(key, time)
+    }
+    // setTimerActive(false)
+  }
+
+  useEffect(() => {
+    let interval = null
+    if(timerActive){
+      interval = setInterval(() => {
+        setTime((time => time + 1))
+      }, 1000)
+    } else{
+      clearInterval(interval)
+      console.log('seconds: ', time)
+    }
+    return () => clearInterval(interval)
+  }, [timerActive])
+
+  useEffect(() => {
+    console.log('tiles on board: ', tilesLeft)
+    if(tilesLeft === 0){
+      setTimerActive(false)
+      setHiScore()
+      gameplay.openBoard(board)
+
+    }
+  }, [tilesLeft])
+
+  const handleTileClick = async (event) => {
 
     // this value is something like "1,3" "13,0" etc.. x/y coords in string format
     const val = event.target.value
@@ -52,11 +90,7 @@ const GamePlay = (props) => {
     default: break
     }
     newBoard && dispatch(setNewBoard(newBoard))
-    if(tilesLeft - 1 === 0){
-      setWinGame(true)
-      gameplay.openBoard(newBoard)
-      setTimerActive(false)
-    }
+    // checkGameStatus()
   }
 
   const handleGameOverButton = () => {
@@ -79,7 +113,8 @@ const GamePlay = (props) => {
 
     return(
       <div>
-        <GameplayHeader timerActive={timerActive} handleGameOverButton={handleGameOverButton}/>
+        { !winGame && <GameplayHeader time={time} timerActive={timerActive} handleGameOverButton={handleGameOverButton}/> }
+
         <TransformWrapper options={wrapperOptions}>
           <div id="board-container">
             <TransformComponent>
@@ -101,7 +136,7 @@ const GamePlay = (props) => {
         </TransformWrapper>
         <Footer />
         {gameover && <GameOver onClick={handleGameOverButton}/>}
-        {winGame && <WinGame onClick={handleGameOverButton} />}
+        {tilesLeft === 0 && <WinGame onClick={handleGameOverButton} />}
       </div>
     )
   }
