@@ -32,31 +32,28 @@ const DifficultySelection = () => {
     setSelectedButton(Number(event.target.id))
   }
   return(
-    <>
-      <h3>New Game</h3>
-      <div id="difficulty-selection">
-        <button
-          className={selectedButton === 0 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
-          id="0"
-          onClick={handleDifficultyButtonClick}
-        >
-          small
-        </button>
-        <button
-          className={selectedButton === 1 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
-          id="1"
-          onClick={handleDifficultyButtonClick}
-        >
-          big
-        </button>
-        <button
-          className={selectedButton === 2 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
-          id="2"onClick={handleDifficultyButtonClick}
-        >
-          huge
-        </button>
-      </div>
-    </>
+    <div id="difficulty-selection">
+      <button
+        className={selectedButton === 0 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
+        id="0"
+        onClick={handleDifficultyButtonClick}
+      >
+        small
+      </button>
+      <button
+        className={selectedButton === 1 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
+        id="1"
+        onClick={handleDifficultyButtonClick}
+      >
+        big
+      </button>
+      <button
+        className={selectedButton === 2 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
+        id="2"onClick={handleDifficultyButtonClick}
+      >
+        huge
+      </button>
+    </div>
   )
 }
 

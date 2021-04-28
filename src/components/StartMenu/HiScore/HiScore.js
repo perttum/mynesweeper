@@ -28,11 +28,11 @@ const HiScore = () => {
   const displayHugeHiScore = hugeHiScore ? hugeHiScore + ' sec' : '---'
   return(
     <div id="hi-score">
-      <h4><Star/> Bestest times <Star/></h4>
+      <h3><Star/> Bestest times <Star/></h3>
       <p>Small: {displaySmallHiScore}</p>
       <p>Big: {displayBigHiScore}</p>
       <p>Huge: {displayHugeHiScore}</p>
-      <button onClick={clearHiScore}>clear</button>
+      {/* <button onClick={clearHiScore}>clear</button> */}
     </div>
   )
 }

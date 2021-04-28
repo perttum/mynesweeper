@@ -1,12 +1,23 @@
 #hi-score{
   width: 260px;
+  padding-top: 10px;
   padding-bottom: 20px;
   text-align: center;
-  border-bottom: 2px solid white;
+  // border-bottom: 2px solid white;
   h4{
     margin: 0 0 12px 0;
   }
   p{
     margin: 0 0 10px 0;
+  }
+  button{
+    border: none;
+    background: white;
+    color: black;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    margin-top: 1em;
   }
 }

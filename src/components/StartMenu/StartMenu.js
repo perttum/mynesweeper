@@ -35,7 +35,7 @@ const StartMenu = () => {
       <button id="start-game-button"
         onClick={handleStartGameButtonClick}
       >
-        Start game
+        New game
       </button>
     </div>
   )
