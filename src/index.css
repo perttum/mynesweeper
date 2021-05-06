@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Share&family=Boogaloo&family=Unica+One&family=Zen+Dots&display=swap');
 
+:root{
+  --main-color: rgb(197, 24, 168);
+  --success-color: rgb(40, 241, 0);
+}
+
 html, body{
   height: 100%;
 }
@@ -18,12 +23,10 @@ body {
   /* background: rgb(31, 31, 31); */
 
 
-  background: rgb(33,33,33);
+  /* background: rgb(33,33,33); */
 }
 
-button{
-  font-family: 'Share', arial;
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -34,4 +37,8 @@ code {
   display: flex;
   justify-content: center;
   flex-direction: row;
+}
+
+button:hover{
+  cursor: pointer;
 }

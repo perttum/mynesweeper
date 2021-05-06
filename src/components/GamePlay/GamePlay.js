@@ -23,18 +23,17 @@ const GamePlay = (props) => {
   const [winGame, setWinGame] = useState(false)
   const [timerActive, setTimerActive] = useState(true)
   const [time, setTime] = useState(0)
+  // const [currentHiScore, setCurrentHiScore] = useState(null)
 
   const setHiScore = () => {
     // setTimerActive(false)
     const key = `myne-sweeper-hi-score-${difficulty.difficulty}`
-    console.log('key: ', key)
 
     const currentHiScore = storager.getFromStorage(key)
     if(!currentHiScore || currentHiScore > time){
       console.log('new hiscore! ', time)
       storager.saveToStorage(key, time)
     }
-    // setTimerActive(false)
   }
 
   useEffect(() => {
@@ -45,7 +44,7 @@ const GamePlay = (props) => {
       }, 1000)
     } else{
       clearInterval(interval)
-      console.log('seconds: ', time)
+      // console.log('seconds: ', time)
     }
     return () => clearInterval(interval)
   }, [timerActive])
@@ -117,7 +116,7 @@ const GamePlay = (props) => {
 
         <TransformWrapper options={wrapperOptions}>
           <div id="board-container">
-            {tilesLeft === 0 && <WinGame onClick={handleGameOverButton} />}
+            {tilesLeft === 0 && <WinGame onClick={handleGameOverButton} time={time} isHiScore={true}/>}
             {gameover && <GameOver onClick={handleGameOverButton}/>}
             <TransformComponent>
 
@@ -126,9 +125,9 @@ const GamePlay = (props) => {
                   return col.map((row, y) => {
                     const tileName = `${x}${y}`
                     return <Tile
-                    key={tileName}
-                    obj={board[x][y]}
-                    onClick={handleTileClick}
+                      key={tileName}
+                      obj={board[x][y]}
+                      onClick={handleTileClick}
                     />
                   })
                 })}

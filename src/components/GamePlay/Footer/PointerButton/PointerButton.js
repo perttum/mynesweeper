@@ -1,11 +1,14 @@
 import React from 'react'
-import './PointerButton.css'
+import './PointerButton.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFlag, faQuestion } from '@fortawesome/free-solid-svg-icons'
 
 const PointerButton = ({ tool, onClick, active }) => {
 
-  let label = tool === 'flag' ? 'F' : '?'
+  const icon = tool === 'flag' ? <FontAwesomeIcon icon={faFlag}/> : <FontAwesomeIcon icon={faQuestion}/>
   const activeStyle = {
-    backgroundColor: 'blue'
+    borderColor: 'var(--success-color)',
+    color: 'var(--success-color)',
   }
 
   let style = {}
@@ -13,9 +16,9 @@ const PointerButton = ({ tool, onClick, active }) => {
     style = activeStyle
   }
   return(
-    <div className="pointer-button" onClick={onClick} id={tool} style={style}>
-      <span>{label}</span>
-    </div>
+    <button className="pointer-button" onClick={onClick} id={tool} style={style}>
+      <span>{icon}</span>
+    </button>
   )
 }
 

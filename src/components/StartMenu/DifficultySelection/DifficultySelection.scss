@@ -1,49 +1,67 @@
 $button-color: white;
-$button-active-color: rgb(81, 255, 65);
-// $button-hover-color: rgb(81, 255, 65);
+$button-active-color: var(--success-color);
 
 #difficulty-selection{
   min-width: 80%;
-  // height: 100vh;
-  // margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  color: white;
+  button{
+    box-sizing: border-box;
+    transition-duration: 0.4s;
+    width: 51px;
+    height: 48px;
+    border: 2px solid white;
+    margin: 0.5em;
+    text-align: center;
+    padding: 1em 0 1em 0;
+    box-sizing: border-box;
+    border-radius: 40px;
+    font-size: 12px;
+    background: none;
+    color: $button-color;
+    text-transform: uppercase;
+  }
+  
+  button:focus{
+    outline: none;
+  }
+  
+  button:hover{
+    cursor: pointer;
+    border-color: $button-active-color;
+    color: $button-active-color;
+  }
 }
 
-.menu-button{
-  // display: block;
-  width: 51px;
-  // max-width: 100px;
-  // min-width: 51px;
-  height: 48px;
-  border: 2px solid white;
-  margin: 0.5em;
-  text-align: center;
-  padding: 1em 0 1em 0;
-  box-sizing: border-box;
-  border-radius: 40px;
-  font-size: 12px;
-  // background-color: black;
-  background: none;
-  color: $button-color;
-  text-transform: uppercase;
-}
+// .menu-button{
+//   width: 51px;
+//   height: 48px;
+//   border: 2px solid white;
+//   margin: 0.5em;
+//   text-align: center;
+//   padding: 1em 0 1em 0;
+//   box-sizing: border-box;
+//   border-radius: 40px;
+//   font-size: 12px;
+//   background: none;
+//   color: $button-color;
+//   text-transform: uppercase;
+// }
 
-.menu-button:focus{
-  outline: none;
-}
+// .menu-button:focus{
+//   outline: none;
+// }
 
-.menu-button:hover{
-  cursor: pointer;
-  border-color: $button-active-color;
-  color: $button-active-color;
-}
+// .menu-button:hover{
+//   cursor: pointer;
+//   border-color: $button-active-color;
+//   color: $button-active-color;
+// }
 
-.active{
-  border-color: $button-active-color;
-  color: $button-active-color;
-  pointer-events: none;
-}
+// .active{
+//   border-color: $button-active-color;
+//   color: $button-active-color;
+//   pointer-events: none;
+// }

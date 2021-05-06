@@ -4,10 +4,8 @@ import './GameOver.scss'
 const GameOver = ({ onClick }) => {
   return(
     <div id="game-over">
-      <div>
-        <h3>GameOver</h3>
-        <button onClick={onClick}>Menu</button>
-      </div>
+      <h2>Game Over</h2>
+      <button onClick={onClick}>Menu</button>
     </div>
   )
 }

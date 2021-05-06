@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './StartMenu.scss'
 import boardGen from '../../gamelogic/boardgen'
 import { setNewBoard } from '../../reducers/board'
@@ -10,6 +10,7 @@ import Logo from './Logo/Logo'
 import DifficultyInfo from './DifficultyInfo/DifficultyInfo'
 import HiScore from './HiScore/HiScore'
 import gameplay from '../../gamelogic/gameplay'
+import StartGameButton from './StartGameButton/StartGameButton'
 
 const StartMenu = () => {
 
@@ -27,17 +28,15 @@ const StartMenu = () => {
   }
 
   return(
-    <div id="start-menu">
-      <Logo/>
-      <HiScore/>
-      <DifficultySelection/>
-      <DifficultyInfo/>
-      <button id="start-game-button"
-        onClick={handleStartGameButtonClick}
-      >
-        New game
-      </button>
-    </div>
+    <>
+      <div id="start-menu">
+        <Logo/>
+        <HiScore/>
+        <DifficultySelection/>
+        <DifficultyInfo/>
+        <StartGameButton onClick={handleStartGameButtonClick}/>
+      </div>
+    </>
   )
 }
 

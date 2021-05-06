@@ -1,0 +1,14 @@
+#start-game-button{
+  color: white;
+  background: none;
+  border: 2px solid var(--main-color);
+  margin: 1em;
+  border-radius: 20px;
+  padding: 20px;
+  transition-duration: 1s;
+}
+
+#start-game-button:hover{
+  border-color: var(--success-color);
+  color: var(--success-color);
+}

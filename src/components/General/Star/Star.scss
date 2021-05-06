@@ -1,14 +1,27 @@
+$star-color: var(--main-color);
+
 .star{
-  font-size: 20px;
-  color: red;
+  margin: 1em;
+  width: 32px;
+  height: 32px;
   display: inline;
-  margin: 1em
+  svg{
+    font-size: 20px;
+    color: $star-color;
+    animation-name: flash;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
 }
 
-@keyframes spin {
-  100%{ 
-    -webkit-transform: rotate(360deg);
-    transform:rotate(360deg);
+@keyframes flash {
+  0%{
+    opacity: 0;
     transform-origin: center;
+  }
+  100%{
+    opacity: 1;
   }
 }

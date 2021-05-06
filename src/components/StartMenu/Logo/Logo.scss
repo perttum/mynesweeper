@@ -6,7 +6,7 @@
   align-items: center;
   overflow: hidden;
   h1{
-    color: rgb(226, 4, 4);
+    color: var(--main-color);
     position: absolute;
     z-index: 100;
     padding-top: 60px;
@@ -21,9 +21,6 @@
   font-size: 130px;
   position: absolute;
   z-index: 90;
-  // width: 100%;
-  // text-align: center;
-  // transform-origin: 60px 60px;
   padding-top: 42px;
   padding-left: 22px;
   color: white;
