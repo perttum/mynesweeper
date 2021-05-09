@@ -2,16 +2,16 @@ const initialState = null
 
 const boardReducer = (state = initialState, action) => {
   switch(action.type){
-  case 'BOARD':
+  case 'UPDATE_BOARD':
     return action.data
 
   default: return state
   }
 }
 
-export const setNewBoard = (board) => {
+export const updateBoard = (board) => {
   return{
-    type: 'BOARD',
+    type: 'UPDATE_BOARD',
     data: board
   }
 }

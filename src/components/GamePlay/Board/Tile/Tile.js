@@ -3,9 +3,7 @@ import './Tile.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBomb, faFlag, faQuestion } from '@fortawesome/free-solid-svg-icons'
 
-const Tile = (props) => {
-
-  const obj = props.obj
+const Tile = ({ tileData, onClick }) => {
 
   let style
 
@@ -31,7 +29,7 @@ const Tile = (props) => {
     }
   }
 
-  if(obj.open){
+  if(tileData.open){
     style = {
       background: 'rgba(51, 51, 51, 0.7)',
       border: 0,
@@ -40,17 +38,17 @@ const Tile = (props) => {
       borderRight: 'none',
       borderBottom: 'none',
       cursor: 'default',
-      color:`${colorMineCount(Number(obj.neighborMines))}`
+      color:`${colorMineCount(Number(tileData.neighborMines))}`
     }
   }
 
-
-  const tileId = `${obj.locationX},${obj.locationY}`
+  const tileId = `${tileData.locationX},${tileData.locationY}`
   let label = ''
-  if(obj.open){
-    label = obj.mine ? <FontAwesomeIcon icon={faBomb}/> : obj.neighborMines > 0 ? obj.neighborMines : ''
+
+  if(tileData.open){
+    label = tileData.mine ? <FontAwesomeIcon icon={faBomb}/> : tileData.neighborMines > 0 ? tileData.neighborMines : ''
   } else{
-    switch(obj.mark){
+    switch(tileData.mark){
     case 'flag':
       label = <FontAwesomeIcon icon={faFlag}/>
       break
@@ -62,7 +60,11 @@ const Tile = (props) => {
   }
 
   return(
-    <button className="tile" style={style} onClick={!obj.open ? props.onClick : undefined} value={tileId} >
+    <button
+      className="tile"
+      style={style}
+      onClick={!tileData.open ? onClick : undefined} value={tileId}
+    >
       {label}
     </button>
   )

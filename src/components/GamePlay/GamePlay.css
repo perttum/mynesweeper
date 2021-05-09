@@ -9,11 +9,7 @@
   overflow: hidden;
 }
 
-.board{
-  /* border-left: 2px solid lightGray;
-  border-bottom: 2px solid lightGray; */
-}
-
+/* This awfull looking thing is for pinch-pan-zoom to work when dragged outside of the board bounds. */
 .TransformComponent-module_container__3NwNd{
   width: 100vw!important;
   height: 100vh!important;

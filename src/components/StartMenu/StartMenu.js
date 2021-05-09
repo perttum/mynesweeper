@@ -1,7 +1,7 @@
 import React from 'react'
 import './StartMenu.scss'
 import boardGen from '../../gamelogic/boardgen'
-import { setNewBoard } from '../../reducers/board'
+import { updateBoard } from '../../reducers/board'
 import { useDispatch, useSelector } from 'react-redux'
 import DifficultySelection from './DifficultySelection/DifficultySelection'
 import { startGame } from '../../reducers/gamestate'
@@ -15,14 +15,14 @@ import StartGameButton from './StartGameButton/StartGameButton'
 const StartMenu = () => {
 
   const dispatch = useDispatch()
-
   const difficulty = useSelector(state => state.difficultyReducer)
 
+  // Creates a new board and launches the game
   const handleStartGameButtonClick = () => {
     const newBoard = boardGen.createBoard(Number(difficulty.boardsize), Number(difficulty.mines))
     const tilesLeft = (difficulty.boardsize * difficulty.boardsize) - difficulty.mines
     dispatch(setTilesAmount(tilesLeft))
-    dispatch(setNewBoard(newBoard))
+    dispatch(updateBoard(newBoard))
     dispatch(startGame())
     gameplay.startTimer()
   }

@@ -1,17 +1,19 @@
 #hi-score{
-  width: 260px;
+  width: 400px;
   padding-top: 10px;
   padding-bottom: 20px;
   text-align: center;
+
   h3{
     margin: 20px 0 12px 0;
     letter-spacing: 1px;
   }
   p{
     margin: 0 0 10px 0;
-    background: -webkit-linear-gradient(#eee, var(--main-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--main-color);
+    // background: -webkit-linear-gradient(#eee, var(--main-color));
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
   }
   button{
     border: none;

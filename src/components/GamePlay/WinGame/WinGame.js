@@ -4,6 +4,7 @@ import storager from '../../../utils/storager'
 
 const WinGame = (props) => {
   console.log('time: ', props.time)
+  console.log('is hiscore: ', props.isHiScore)
   // const [isHiScore, setIsHiScore] = useState(props.isHiScore)
 
   // useEffect(() => {

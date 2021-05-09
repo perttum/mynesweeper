@@ -29,7 +29,7 @@ const HiScore = () => {
 
   return(
     <div id="hi-score">
-      <h3><Star/>BEST PLAYS:<Star/></h3>
+      <h3>BEST PLAYS:</h3>
       <p>Small: {displaySmallHiScore}</p>
       <p>Big: {displayBigHiScore}</p>
       <p>Huge: {displayHugeHiScore}</p>
