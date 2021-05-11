@@ -1,81 +1,73 @@
 import store from '../store'
 import { subtractTile } from '../reducers/tilesleft'
 
+const debug = false // Turn on to console log debug messages
+
 const openTile = (locX, locY, board, boardSize) => {
   const newBoard = [...board]
+  // Open the tile that was clicked
   newBoard[locY][locX].open = true
   store.dispatch(subtractTile())
 
+  // If the opened tile has no neighbouring mines, open closed neighbour tiles
   if(newBoard[locY][locX].neighborMines === 0){
-    //console.log(`I dont have mine neighbors!`)
-    for (let x = -1; x <= 1; x++){
-      for (let y = -1; y <= 1; y++){
+    debug && console.log(`Loc ${locX}/${locY} doesn't have any mine neighbors.`)
 
-        let xLoc = locX + x
-        let yLoc = locY + y
+    // Calling openNeighbourTiles() will call openTile() again if it finds a closed neighbour tile.
+    // The process will loop until no closed and zero neighbour tiles 'connected' to the original
+    // opentTile() call location can be found.
+    openNeighbourTiles(locX, locY, boardSize, newBoard)
+  }
+  return newBoard
+}
 
-        if(xLoc >= 0 && xLoc < boardSize){
-          if(yLoc >= 0 && yLoc < boardSize){
+// Find & open closed tiles
+const openNeighbourTiles = (locX, locY, boardSize, newBoard) => {
+  // Loop through X axis
+  for (let x = -1; x <= 1; x++){
+    // Loop Y axis
+    findAndOpenClosedTilesOnYAxis(x, locX, locY,  boardSize, newBoard)
+  }
+}
 
-            if(!newBoard[yLoc][xLoc].open){
-              //console.log(`add mine count to x:${xLoc}/y:${yLoc} from y:${location.x}/y:${location.y}`)
-              openTile(xLoc, yLoc, newBoard, boardSize)
-            }
-            // else{
-            //   console.log(`..tried loc ${xLoc},${yLoc} but there was a mine.`)
-            // }
+// Best function name ever
+const findAndOpenClosedTilesOnYAxis = (x, locX, locY, boardSize, newBoard) => {
+  const currentXLoc = locX + x
+  for (let y = -1; y <= 1; y++){
+    const currentYLoc = locY + y
+
+    // If not the tile/loc that called openTile()
+    if(!(x === 0 && y === 0)){
+      // If currenXYLoc is on board
+      if(currentXLoc >= 0 && currentXLoc < boardSize){
+        if(currentYLoc >= 0 && currentYLoc < boardSize){
+          // Call openTile() on currentX/Y location if not open already
+          if(!newBoard[currentYLoc][currentXLoc].open){
+            debug && console.log(`open tile: x:${currentXLoc}/y:${currentYLoc}`)
+            openTile(currentXLoc, currentYLoc, newBoard, boardSize)
           }
         }
       }
     }
   }
-  return newBoard
 }
 
+// Flag or question tile
 const markTile = (locX, locY, board, mark) => {
   const newBoard = [...board]
   newBoard[locY][locX].mark = newBoard[locY][locX].mark === mark ? 'none' : mark
-  // if(newBoard[locY][locX].mark === mark){
-  //   newBoard[locY][locX].mark = 'none'
-  // } else {
-  //   newBoard[locY][locX].mark = mark
-  // }
   return newBoard
 }
 
+// Open all tiles
 const openBoard = (board) => {
   const newBoard = [...board]
   for (let x = 0; x < newBoard.length; x++) {
     for (let y = 0; y < newBoard.length; y++) {
-      newBoard[x][y].open = true
+      newBoard[y][x].open = true
     }
   }
   return newBoard
 }
 
-let startTime, endTime
-
-export let timeCount = 0
-let timer = 0
-
-const addTime = () => {
-  timeCount++
-}
-
-const startTimer = () => {
-  startTime = new Date()
-  timer = 0
-  timeCount = 0
-  timer = setInterval(addTime, 1000)
-}
-
-const endTimer = () => {
-  endTime = new Date()
-  let timeDifference = endTime - startTime
-  timeDifference /= 1000
-  console.log('time: ', timeDifference)
-  clearInterval(timer)
-  timeCount = 0
-}
-
-export default { openTile, markTile, openBoard, startTimer, endTimer }
+export default { openTile, markTile, openBoard }

@@ -79,7 +79,6 @@ const GamePlay = (props) => {
         gameplay.openBoard(board)
         setGameover(true)
         setTimerActive(false)
-        gameplay.endTimer()
       } else {
         newBoard = gameplay.openTile(x, y, board, difficulty.boardsize)
       }

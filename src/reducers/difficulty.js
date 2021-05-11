@@ -1,6 +1,6 @@
 export const difficultySettings = [{
   difficulty: 'easy',
-  mines: 1, // 8
+  mines: 8, // 8
   boardsize: 8
 }, {
   difficulty: 'medium',
@@ -18,19 +18,19 @@ const initialState = difficultySettings[0]
 const difficultyReducer = (state = initialState, action) => {
   switch(action.type){
   case 'SET_DIFFICULTY':
-    return difficultySettings[Number(action.data)]
+    return action.data
+    // return difficultySettings[Number(action.data)]
 
   default: return state
   }
 }
 
-// Action creators
-
 // Takes in difficulty as a number from 0 to 2
 export const setDifficulty = (difficulty) => {
+  const difficultyToInt = difficulty === 'easy' ? 0 : difficulty === 'medium' ? 1 : 2
   return{
     type: 'SET_DIFFICULTY',
-    data: difficulty
+    data: difficultySettings[difficultyToInt]
   }
 }
 

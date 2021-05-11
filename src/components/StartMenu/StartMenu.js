@@ -9,13 +9,17 @@ import { setTilesAmount } from '../../reducers/tilesleft'
 import Logo from './Logo/Logo'
 import DifficultyInfo from './DifficultyInfo/DifficultyInfo'
 import HiScore from './HiScore/HiScore'
-import gameplay from '../../gamelogic/gameplay'
 import StartGameButton from './StartGameButton/StartGameButton'
+import { setDifficulty } from '../../reducers/difficulty'
 
 const StartMenu = () => {
 
   const dispatch = useDispatch()
   const difficulty = useSelector(state => state.difficultyReducer)
+
+  const handleDifficultyButtonClick = (event) => {
+    dispatch(setDifficulty(event.target.id))
+  }
 
   // Creates a new board and launches the game
   const handleStartGameButtonClick = () => {
@@ -24,7 +28,6 @@ const StartMenu = () => {
     dispatch(setTilesAmount(tilesLeft))
     dispatch(updateBoard(newBoard))
     dispatch(startGame())
-    gameplay.startTimer()
   }
 
   return(
@@ -32,7 +35,7 @@ const StartMenu = () => {
       <div id="start-menu">
         <Logo/>
         <HiScore/>
-        <DifficultySelection/>
+        <DifficultySelection handleDifficultyButtonClick={handleDifficultyButtonClick}/>
         <DifficultyInfo/>
         <StartGameButton onClick={handleStartGameButtonClick}/>
       </div>

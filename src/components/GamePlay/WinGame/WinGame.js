@@ -1,23 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './WinGame.scss'
-import storager from '../../../utils/storager'
 
-const WinGame = (props) => {
-  console.log('time: ', props.time)
-  console.log('is hiscore: ', props.isHiScore)
-  // const [isHiScore, setIsHiScore] = useState(props.isHiScore)
-
-  // useEffect(() => {
-  //   const currentHiScore = storager.getFromStorage('myne-sweeper-hi-score-easy')
-  //   currentHiScore < props.time && setIsHiScore(true)
-  // }, [])
+const WinGame = ({ isHiScore, time, onClick }) => {
 
   return(
     <div id="win-game">
-      { props.isHiScore && <h1>New HiScore!</h1>}
+      { isHiScore && <h1>New HiScore!</h1>}
       <h2>Good job!</h2>
-      <p>Game completed in {props.time} seconds</p>
-      <button onClick={props.onClick}>menu</button>
+      <p>Game completed in {time} seconds</p>
+      <button onClick={onClick}>menu</button>
     </div>
   )
 }

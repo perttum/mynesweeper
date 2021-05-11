@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setDifficulty } from '../../../reducers/difficulty'
+import { useSelector } from 'react-redux'
 import './DifficultySelection.scss'
 
-const DifficultySelection = () => {
-  const dispatch = useDispatch()
+const DifficultySelection = ({ handleDifficultyButtonClick }) => {
 
   const difficulty = useSelector(state => state.difficultyReducer)
   const [selectedButton, setSelectedButton] = useState(0)
@@ -25,12 +23,7 @@ const DifficultySelection = () => {
       default: return null
       }
     }
-  }, [])
-
-  const handleDifficultyButtonClick = (event) => {
-    dispatch(setDifficulty(event.target.id))
-    setSelectedButton(Number(event.target.id))
-  }
+  }, [difficulty])
 
   const selectedButtonStyle = {
     borderColor: 'rgb(40, 241, 0)',
@@ -41,25 +34,26 @@ const DifficultySelection = () => {
   return(
     <div id="difficulty-selection">
       <button
-        // className={selectedButton === 0 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
         style={selectedButton === 0 ? selectedButtonStyle : null}
-        id="0"
+        id="easy"
+        data-testid="easy-difficulty"
         onClick={handleDifficultyButtonClick}
       >
         small
       </button>
       <button
-        // className={selectedButton === 1 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
         style={selectedButton === 1 ? selectedButtonStyle : null}
-        id="1"
+        id="medium"
+        data-testid="medium-difficulty"
         onClick={handleDifficultyButtonClick}
       >
         big
       </button>
       <button
-        // className={selectedButton === 2 ? 'menu-button difficulty-select active' : 'menu-button difficulty-select'}
         style={selectedButton === 2 ? selectedButtonStyle : null}
-        id="2"onClick={handleDifficultyButtonClick}
+        id="hard"
+        data-testid="hard-difficulty"
+        onClick={handleDifficultyButtonClick}
       >
         huge
       </button>
