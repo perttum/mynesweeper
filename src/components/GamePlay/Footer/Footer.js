@@ -1,5 +1,4 @@
 import React from 'react'
-import './Footer.scss'
 import PointerButton from './PointerButton/PointerButton'
 import { setPointerToDefault, setPointerToFlag, setPointerToQuestionMark } from '../../../reducers/pointer'
 import { useDispatch, useSelector } from 'react-redux'

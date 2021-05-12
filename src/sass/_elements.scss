@@ -1,0 +1,15 @@
+html {
+  height: 100%;
+  body {
+    height: 100%;
+    font-family: $font;
+    color: $primary;
+    background: $bg-color;
+    p{
+      letter-spacing: 0.5px;
+    }
+    button:hover{
+      cursor: pointer;
+    }
+  }
+}

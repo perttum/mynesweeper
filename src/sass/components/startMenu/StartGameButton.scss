@@ -1,7 +1,7 @@
 #start-game-button{
-  color: white;
+  color: $primary-light;
   background: none;
-  border: 2px solid var(--main-color);
+  border: 2px solid $primary;
   margin: 1em;
   border-radius: 20px;
   padding: 20px;
@@ -9,6 +9,6 @@
 }
 
 #start-game-button:hover{
-  border-color: var(--success-color);
-  color: var(--success-color);
+  border-color: $success;
+  color: $success;
 }

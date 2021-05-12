@@ -1,5 +1,4 @@
 import React from 'react'
-import './Logo.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBomb } from '@fortawesome/free-solid-svg-icons'
 

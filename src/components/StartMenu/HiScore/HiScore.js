@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './HiScore.scss'
 import storager from '../../../utils/storager'
-import Star from '../../General/Star/Star'
 
 const HiScore = () => {
 

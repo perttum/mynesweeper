@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import GameOver from './GameOver/GameOver'
+import Header from './Header/Header'
 import Footer from './Footer/Footer'
-import WinGame from './WinGame/WinGame'
-import GameplayHeader from './GameplayHeader/GameplayHeader'
 import Board from './Board/Board'
+import GameOver from './GameOver/GameOver'
+import WinGame from './WinGame/WinGame'
 import { gameOver } from '../../reducers/gamestate'
 import { updateBoard } from '../../reducers/board'
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 import storager from '../../utils/storager'
 import gameplay from '../../gamelogic/gameplay'
-import './GamePlay.css'
 
 const GamePlay = (props) => {
 
@@ -106,7 +105,7 @@ const GamePlay = (props) => {
     defauttPositionY: window.innerHeight / 2
   }
 
-  const header = <GameplayHeader
+  const header = <Header
     time={time}
     timerActive={timerActive}
     handleGameOverButton={handleGameOverButton}

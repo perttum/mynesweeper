@@ -1,5 +1,4 @@
 import React from 'react'
-import './PointerButton.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFlag, faQuestion } from '@fortawesome/free-solid-svg-icons'
 

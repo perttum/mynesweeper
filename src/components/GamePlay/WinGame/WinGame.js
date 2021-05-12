@@ -1,5 +1,4 @@
 import React from 'react'
-import './WinGame.scss'
 
 const WinGame = ({ isHiScore, time, onClick }) => {
 

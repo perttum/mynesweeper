@@ -1,5 +1,4 @@
 import React from 'react'
-import './Tile.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBomb, faFlag, faQuestion } from '@fortawesome/free-solid-svg-icons'
 

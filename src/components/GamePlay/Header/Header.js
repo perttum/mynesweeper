@@ -1,6 +1,5 @@
 import React from 'react'
 import Timer from './Timer/Timer'
-import './GameplayHeader.scss'
 
 const GameplayHeader = (props) => {
   return(

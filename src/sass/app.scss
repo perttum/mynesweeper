@@ -1,0 +1,17 @@
+@import "./variables.scss";
+@import "./elements.scss";
+// @import "./index.scss";
+@import "./components/startMenu/StartMenu.scss";
+@import "./components/startMenu/Logo.scss";
+@import "./components/startMenu/HiScore.scss";
+@import "./components/startMenu/DifficultySelection.scss";
+@import "./components/startMenu/DifficultyInfo.scss";
+@import "./components/startMenu/StartGameButton.scss";
+@import "./components/gamePlay/GamePlay.scss";
+@import "./components/gamePlay/Header.scss";
+@import "./components/gamePlay/Footer.scss";
+@import "./components/gamePlay/Timer.scss";
+@import "./components/gamePlay/Tile.scss";
+@import "./components//gamePlay/PointerButton.scss";
+@import "./components/gamePlay/WinGame.scss";
+@import "./components/gamePlay/GameOver.scss";

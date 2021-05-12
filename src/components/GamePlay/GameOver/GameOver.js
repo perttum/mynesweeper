@@ -1,5 +1,4 @@
 import React from 'react'
-import './GameOver.scss'
 
 const GameOver = ({ onClick }) => {
   return(

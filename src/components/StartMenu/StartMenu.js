@@ -1,5 +1,5 @@
 import React from 'react'
-import './StartMenu.scss'
+// import './StartMenu.scss'
 import boardGen from '../../gamelogic/boardgen'
 import { updateBoard } from '../../reducers/board'
 import { useDispatch, useSelector } from 'react-redux'

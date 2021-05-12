@@ -6,7 +6,7 @@
   align-items: center;
   overflow: hidden;
   h1{
-    color: var(--main-color);
+    color: $primary;
     position: absolute;
     z-index: 100;
     padding-top: 60px;
@@ -23,5 +23,5 @@
   z-index: 90;
   padding-top: 42px;
   padding-left: 22px;
-  color: white;
+  color: $primary-light;
 }

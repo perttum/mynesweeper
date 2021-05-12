@@ -1,5 +1,4 @@
 import React from 'react'
-import './DifficultyInfo.scss'
 import { useSelector } from 'react-redux'
 
 const DifficultyInfo = () => {
