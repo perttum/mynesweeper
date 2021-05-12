@@ -1,5 +1,4 @@
 import React from 'react'
-// import './index.css'
 import './sass/app.scss'
 import GamePlay from './components/GamePlay/GamePlay'
 import StartMenu from './components/StartMenu/StartMenu'
