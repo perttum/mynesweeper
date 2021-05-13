@@ -6,16 +6,22 @@ const PointerButton = ({ tool, onClick, active }) => {
 
   const icon = tool === 'flag' ? <FontAwesomeIcon icon={faFlag}/> : <FontAwesomeIcon icon={faQuestion}/>
   const activeStyle = {
-    borderColor: 'var(--success-color)',
-    color: 'var(--success-color)',
+    borderColor: 'rgb(79, 243, 20)',
+    color: 'rgb(79, 243, 20)',
   }
 
   let style = {}
   if(active){
     style = activeStyle
   }
+
   return(
-    <button className="pointer-button" onClick={onClick} id={tool} style={style}>
+    <button
+      className="pointer-button"
+      onClick={onClick}
+      id={tool}
+      style={style}
+    >
       <span>{icon}</span>
     </button>
   )

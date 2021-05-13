@@ -1,6 +1,6 @@
 export const difficultySettings = [{
   difficulty: 'easy',
-  mines: 8, // 8
+  mines: 1, // 8
   boardsize: 8
 }, {
   difficulty: 'medium',

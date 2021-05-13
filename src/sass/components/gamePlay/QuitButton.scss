@@ -1,0 +1,20 @@
+#quit-button{
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  color: $primary-light;
+  margin: $border-margin $border-margin 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.2s;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: $gameplay-button-border-radius;
+}
+
+#quit-button:hover{
+  border: 2px solid $primary-light;
+  border-radius: $gameplay-button-border-radius;
+}

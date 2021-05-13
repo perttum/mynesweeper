@@ -9,7 +9,7 @@
   top: 0;
 
   h1{
-    background: -webkit-linear-gradient(#eee, var(--main-color));
+    background: -webkit-linear-gradient(#eee, $primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

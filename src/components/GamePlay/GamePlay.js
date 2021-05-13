@@ -7,6 +7,7 @@ import GameOver from './GameOver/GameOver'
 import WinGame from './WinGame/WinGame'
 import { gameOver } from '../../reducers/gamestate'
 import { updateBoard } from '../../reducers/board'
+import { setPointerToDefault } from '../../reducers/pointer'
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 import storager from '../../utils/storager'
 import gameplay from '../../gamelogic/gameplay'
@@ -32,24 +33,14 @@ const GamePlay = (props) => {
 
     const currentHiScore = storager.getFromStorage(key)
     if(!currentHiScore || currentHiScore > time){
-      console.log('new hiscore! ', time)
       setIsNewHiScore(true)
       storager.saveToStorage(key, time)
     }
   }
 
-  // Start timer
   useEffect(() => {
-    let interval = null
-    if(timerActive){
-      interval = setInterval(() => {
-        setTime((time => time + 1))
-      }, 1000)
-    } else{
-      clearInterval(interval)
-    }
-    return () => clearInterval(interval)
-  }, [timerActive])
+    dispatch(setPointerToDefault())
+  }, [dispatch])
 
   // Check if all tiles are clear - if so Win Game!
   useEffect(() => {
@@ -59,7 +50,7 @@ const GamePlay = (props) => {
       gameplay.openBoard(board)
       setWinGame(true)
     }
-  }, [tilesLeft])
+  }, [tilesLeft, board])
 
   const handleTileClick = async (event) => {
 
@@ -97,7 +88,7 @@ const GamePlay = (props) => {
     dispatch(gameOver())
   }
 
-  // Options for pin-pan-zoom
+  // Options for pinch-pan-zoom
   const wrapperOptions = {
     limitToBounds: false,
     limitToWrapper: false,
@@ -107,6 +98,7 @@ const GamePlay = (props) => {
 
   const header = <Header
     time={time}
+    setTime={setTime}
     timerActive={timerActive}
     handleGameOverButton={handleGameOverButton}
   />
@@ -144,50 +136,6 @@ const GamePlay = (props) => {
       <Footer />
     </div>
   )
-
-  // if(board !== null){
-
-  //   const size = {
-  //     width: props.boardsize,
-  //     height: props.boardsize,
-  //   }
-
-  //   const wrapperOptions = {
-  //     limitToBounds: false,
-  //     limitToWrapper: false,
-  //     defaultPositionX: window.innerWidth / 2,
-  //     defauttPositionY: window.innerHeight / 2
-  //   }
-
-  //   return(
-  //     <div>
-  //       { (!winGame && !gameover) && <GameplayHeader time={time} timerActive={timerActive} handleGameOverButton={handleGameOverButton}/> }
-  //       {winGame && <WinGame onClick={handleGameOverButton} time={time} isHiScore={true}/>}
-  //       {gameover && <GameOver onClick={handleGameOverButton}/>}
-  //       <div id="board-container">
-  //         <TransformWrapper options={wrapperOptions}>
-  //           <TransformComponent>
-  //             <div className="board" style={size}>
-  //               <Board
-  //                 board={board}
-  //                 size={size}
-  //                 handleTileClick={handleTileClick}
-  //               />
-  //             </div>
-  //           </TransformComponent>
-  //         </TransformWrapper>
-  //       </div>
-  //       <Footer />
-  //     </div>
-  //   )
-  // }
-  // else{
-  //   return(
-  //     <p>
-  //         Board has not been created yet.
-  //     </p>
-  //   )
-  // }
 }
 
 export default GamePlay

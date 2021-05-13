@@ -1,15 +1,18 @@
 import React from 'react'
 import Timer from './Timer/Timer'
+import QuitButton from './QuitButton/QuitButton'
 
-const GameplayHeader = (props) => {
+const GameplayHeader = ({ time, setTime, timerActive, handleGameOverButton }) => {
   return(
     <div id="gameplay-header">
       <div>
-        <Timer time={props.time} timerActive={props.timerActive}/>
+        <Timer
+          time={time}
+          setTime={setTime}
+          timerActive={timerActive}
+        />
       </div>
-      <button id="quit-button" onClick={props.handleGameOverButton}>
-        X
-      </button>
+      <QuitButton onClick={handleGameOverButton} />
     </div>
   )
 }
