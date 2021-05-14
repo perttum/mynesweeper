@@ -9,7 +9,8 @@ html {
     font-family: $font;
     color: $primary;
     background: $bg-color;
-    touch-action: pan-x pan-y;
+    // touch-action: pan-x pan-y;
+    touch-action: none;
     p{
       letter-spacing: 0.5px;
     }
