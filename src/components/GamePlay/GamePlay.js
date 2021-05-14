@@ -38,11 +38,12 @@ const GamePlay = (props) => {
     }
   }
 
+  // Make sure that the cursor is set to default
   useEffect(() => {
     dispatch(setPointerToDefault())
   }, [dispatch])
 
-  // Check if all tiles are clear - if so Win Game!
+  // When board changes, check if all tiles are clear - if so Win Game!
   useEffect(() => {
     if(tilesLeft === 0){
       setTimerActive(false)

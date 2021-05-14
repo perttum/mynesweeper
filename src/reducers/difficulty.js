@@ -19,13 +19,11 @@ const difficultyReducer = (state = initialState, action) => {
   switch(action.type){
   case 'SET_DIFFICULTY':
     return action.data
-    // return difficultySettings[Number(action.data)]
 
   default: return state
   }
 }
 
-// Takes in difficulty as a number from 0 to 2
 export const setDifficulty = (difficulty) => {
   const difficultyToInt = difficulty === 'easy' ? 0 : difficulty === 'medium' ? 1 : 2
   return{
