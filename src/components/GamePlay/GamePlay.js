@@ -94,7 +94,8 @@ const GamePlay = (props) => {
     limitToBounds: false,
     limitToWrapper: false,
     defaultPositionX: window.innerWidth / 2,
-    defauttPositionY: window.innerHeight / 2
+    defauttPositionY: window.innerHeight / 2,
+    scale: 1,
   }
 
   const header = <Header
@@ -122,7 +123,29 @@ const GamePlay = (props) => {
       { winGame && winGameScreen }
       {gameover && <GameOver onClick={handleGameOverButton}/>}
       <div id="board-container">
-        <TransformWrapper options={wrapperOptions}>
+        <TransformWrapper
+          options={wrapperOptions}
+          wheel={{ disabled:true }}
+          pinch= {{
+            disabled: true
+          }}
+          // zoomIn= {{
+          //   disabled: true
+          // }},
+          // zoomOut: {
+          //   disabled: true
+          // },
+          // wheel: {
+          //   disabled: true,
+          //  º wheelEnabled: false
+          // },
+          // scalePadding: {
+          //   disabled: true
+          // },
+          // doubleClick: {
+          //   disabled: true
+          // }
+        >
           <TransformComponent>
             <div>
               <Board

@@ -16,6 +16,10 @@ function App() {
     difficulty={difficulty.difficulty}
   />
 
+  document.addEventListener('focus', function() {
+    console.log('focused: ', document.activeElement)
+  }, true)
+
   return(
     <div>
       {gameState === 'menu' ? <StartMenu/> : gamePlayComponent}
