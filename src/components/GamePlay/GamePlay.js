@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import ZoomPanComponent from './ZoomPanComponent/ZoomPanComponent'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import Board from './Board/Board'
@@ -8,7 +9,7 @@ import WinGame from './WinGame/WinGame'
 import { gameOver } from '../../reducers/gamestate'
 import { updateBoard } from '../../reducers/board'
 import { setPointerToDefault } from '../../reducers/pointer'
-import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
+// import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 import storager from '../../utils/storager'
 import gameplay from '../../gamelogic/gameplay'
 
@@ -20,7 +21,9 @@ const GamePlay = (props) => {
   const difficulty = useSelector(state => state.difficultyReducer)
   const pointer = useSelector(state => state.pointerReducer)
   const tilesLeft = useSelector(state => state.tilesLeftReducer)
+  // const zoomLevel = useSelector(state => state.zoomLevel)
 
+  // const [resetView, setResetView] = useState(true)
   const [gameover, setGameover] = useState(false)
   const [winGame, setWinGame] = useState(false)
   const [isNewHiScore, setIsNewHiScore] = useState(false)
@@ -38,7 +41,7 @@ const GamePlay = (props) => {
     }
   }
 
-  // Make sure that the cursor is set to default
+  // Make sure that the cursor is set to default when starting a new game
   useEffect(() => {
     dispatch(setPointerToDefault())
   }, [dispatch])
@@ -89,15 +92,6 @@ const GamePlay = (props) => {
     dispatch(gameOver())
   }
 
-  // Options for pinch-pan-zoom
-  const wrapperOptions = {
-    limitToBounds: false,
-    limitToWrapper: false,
-    defaultPositionX: window.innerWidth / 2,
-    defauttPositionY: window.innerHeight / 2,
-    scale: 1,
-  }
-
   const header = <Header
     time={time}
     setTime={setTime}
@@ -123,39 +117,15 @@ const GamePlay = (props) => {
       { winGame && winGameScreen }
       {gameover && <GameOver onClick={handleGameOverButton}/>}
       <div id="board-container">
-        <TransformWrapper
-          options={wrapperOptions}
-          wheel={{ disabled:true }}
-          pinch= {{
-            disabled: true
-          }}
-          // zoomIn= {{
-          //   disabled: true
-          // }},
-          // zoomOut: {
-          //   disabled: true
-          // },
-          // wheel: {
-          //   disabled: true,
-          //  º wheelEnabled: false
-          // },
-          // scalePadding: {
-          //   disabled: true
-          // },
-          // doubleClick: {
-          //   disabled: true
-          // }
-        >
-          <TransformComponent>
-            <div>
-              <Board
-                board={board}
-                size={size}
-                handleTileClick={handleTileClick}
-              />
-            </div>
-          </TransformComponent>
-        </TransformWrapper>
+        <ZoomPanComponent>
+          <div>
+            <Board
+              board={board}
+              size={size}
+              handleTileClick={handleTileClick}
+            />
+          </div>
+        </ZoomPanComponent>
       </div>
       <Footer />
     </div>
