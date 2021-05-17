@@ -9,7 +9,6 @@ import WinGame from './WinGame/WinGame'
 import { gameOver } from '../../reducers/gamestate'
 import { updateBoard } from '../../reducers/board'
 import { setPointerToDefault } from '../../reducers/pointer'
-// import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 import storager from '../../utils/storager'
 import gameplay from '../../gamelogic/gameplay'
 
@@ -21,9 +20,7 @@ const GamePlay = (props) => {
   const difficulty = useSelector(state => state.difficultyReducer)
   const pointer = useSelector(state => state.pointerReducer)
   const tilesLeft = useSelector(state => state.tilesLeftReducer)
-  // const zoomLevel = useSelector(state => state.zoomLevel)
 
-  // const [resetView, setResetView] = useState(true)
   const [gameover, setGameover] = useState(false)
   const [winGame, setWinGame] = useState(false)
   const [isNewHiScore, setIsNewHiScore] = useState(false)
