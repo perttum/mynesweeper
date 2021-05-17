@@ -18,6 +18,8 @@ const ZoomPanComponent = (props) => {
 
   const wrapper = <TransformWrapper
     options={wrapperOptions}
+    wheel={{ disabled: true }}
+    pinch={{ disabled: true }}
   >
     {({ zoomIn, zoomOut }) => (
       <React.Fragment>
