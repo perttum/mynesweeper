@@ -17,7 +17,7 @@ const PointerButton = ({ tool, onClick, active }) => {
 
   return(
     <button
-      className="pointer-button"
+      className="footer-button"
       onClick={onClick}
       id={tool}
       style={style}

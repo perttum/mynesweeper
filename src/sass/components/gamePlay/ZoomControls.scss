@@ -1,0 +1,13 @@
+#zoom-tools{
+  position: fixed;
+  bottom: $border-margin;
+  left: $border-margin;
+  z-index: 1000;
+  display: flex;
+  margin-bottom: 0;
+
+  // Hacky but true
+  button{
+    margin-bottom: 0;
+  }
+}

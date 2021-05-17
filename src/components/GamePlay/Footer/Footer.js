@@ -45,7 +45,7 @@ const Footer = () => {
         <PointerButton tool='flag' onClick={handlePointerButton} active={pointer === 'flag' ? true : false}/>
         <PointerButton tool='question-mark' onClick={handlePointerButton} active={pointer === 'questionmark' ? true : false}/>
       </div>
-      <ZoomButton onClick={handleZoomClick}/>
+      {/* <ZoomButton onClick={handleZoomClick}/> */}
     </div>
   )
 }

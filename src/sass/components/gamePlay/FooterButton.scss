@@ -1,4 +1,4 @@
-.pointer-button{
+.footer-button{
   width: 32px;
   height: 32px;
   background-color: black;
@@ -16,11 +16,12 @@
   pointer-events: all;
 }
 
-.pointer-button:hover{
+.footer-button:hover{
   cursor: pointer;
   color: $success;
 }
 
-.pointer-button span{
+.footer-button span{
   pointer-events: none;
+  font-size: 20px;
 }
