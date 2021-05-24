@@ -34,10 +34,10 @@ const StartMenu = () => {
     <>
       <div id="start-menu">
         <Logo/>
-        <HiScore/>
         <DifficultySelection handleDifficultyButtonClick={handleDifficultyButtonClick}/>
         <DifficultyInfo/>
         <StartGameButton onClick={handleStartGameButtonClick}/>
+        <HiScore/>
       </div>
     </>
   )

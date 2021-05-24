@@ -1,6 +1,6 @@
 #logo{
   width: 100%;
-  min-height: 160px;
+  min-height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@
     color: $primary;
     position: absolute;
     z-index: 100;
-    padding-top: 60px;
+    padding-top: 44px;
     letter-spacing: 2px;
     margin: 0;
     font-size: 45px;
@@ -21,7 +21,6 @@
   font-size: 130px;
   position: absolute;
   z-index: 90;
-  padding-top: 42px;
   padding-left: 22px;
   color: $primary-light;
 }

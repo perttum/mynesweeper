@@ -16,7 +16,7 @@ function App() {
     difficulty={difficulty.difficulty}
   />
 
-  // Debug log the currently focused element on change
+  // Log the currently focused element on change
   // document.addEventListener('focus', function() {
   //   console.log('focused: ', document.activeElement)
   // }, true)
