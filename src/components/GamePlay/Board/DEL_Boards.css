@@ -1,7 +1,0 @@
-#board-container{
-  width: 100vh;
-  height: 100vw;
-  display: table-cell;
-  vertical-align: middle;
-  background: none;
-}
